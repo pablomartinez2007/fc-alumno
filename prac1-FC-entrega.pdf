@@ -1,0 +1,1434 @@
+<!DOCTYPE html>
+<html lang="es"><head>
+  <meta charset="UTF-8">
+  <title>Formulario Notebook</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    :root {
+      --upct-azul: #005a9c;
+      --upct-azul-claro: #d9ecf9;
+      --upct-gris-claro: #f5f5f5;
+      --texto-principal: #333333;
+      --borde-input: #005a9c;
+    }
+    body { font-family: Arial, sans-serif; color: var(--texto-principal); background-color: #ffffff; margin: 20px; max-width: 900px; }
+    header { text-align: center; background-color: var(--upct-azul); color: white; padding: 20px 10px; border-radius: 8px; margin-bottom: 30px; }
+    header h1 { margin: 0; font-size: 26px; }
+    header h2 { margin: 0; font-size: 18px; font-weight: normal; }
+    .cell { border: 1px solid #cccccc; background: var(--upct-gris-claro); padding: 10px; margin-bottom: 15px; border-radius: 6px; }
+    .cell-info { background-color: var(--upct-azul-claro); border: 2px solid var(--upct-azul); color: var(--upct-azul); font-weight: bold; text-align: center; }
+    .markdown { margin: 10px 0; font-weight: normal; }
+    .question { margin-bottom: 5px; font-weight: normal; font-family: Arial, sans-serif; }
+    .identity { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .identity label { min-width: 200px; font-weight: bold; color: var(--upct-azul); }
+    input[type=text] { width: 100%; font-family: monospace; padding: 6px; border: 2px solid var(--borde-input); border-radius: 4px; margin-bottom: 20px; box-sizing: border-box; }
+    .identity input[type=text] { width: calc(100% - 210px); margin-bottom: 0; }
+    .save-btn { padding: 10px 20px; font-size: 16px; cursor: pointer; background-color: var(--upct-azul); color: white; border: none; border-radius: 4px; }
+    pre code { display: block; padding: 10px; border-radius: 6px; font-family: monospace; white-space: pre-wrap; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Fundamentos de Computadores</h1>
+    <h2>1º de Grado en Ciencia e Ingeniería de Datos - UPCT</h2>
+  </header>
+  <form id="notebookForm">
+<div class="cell markdown"><h1></h1><h2 align="center"><strong &gt;gcid="" fundamentos="" de="" computadores<="" strong="" &gt;<="" h2=""></strong></h2><strong &gt;gcid="" fundamentos="" de="" computadores<="" strong="" &gt;<="" h2="">
+</strong></div><strong &gt;gcid="" fundamentos="" de="" computadores<="" strong="" &gt;<="" h2="">
+<div class="cell cell-info"><h1>Bloque 1 - Práctica 1: Introducción al <em>shell</em> de Linux. Sistema de ficheros.</h1>
+</div>
+<div class="cell markdown"><h1></h1><h3><strong &gt;ejercicios="" entregables="" para="" evaluación="" continua<="" strong="" &gt;<="" h3=""></strong></h3><strong &gt;ejercicios="" entregables="" para="" evaluación="" continua<="" strong="" &gt;<="" h3="">
+</strong></div><strong &gt;ejercicios="" entregables="" para="" evaluación="" continua<="" strong="" &gt;<="" h3="">
+
+            <div class="cell identity">
+              <label for="nombre">NOMBRE Y APELLIDOS:</label>
+              <input type="text" id="nombre" name="nombre" placeholder="Escribe tu nombre y apellidos" value="Pablo Martínez Hernando">
+            </div>
+            
+            <div class="cell identity">
+              <label for="dni">DNI:</label>
+              <input type="text" id="dni" name="dni" placeholder="Escribe tu DNI" value="58466440a">
+            </div>
+            <div class="cell markdown"><hr>
+</div>
+ <button type="button" class="save-btn" onclick="saveHTML()">💾 Guardar HTML con respuestas</button>
+<div class="cell markdown"><h1>1: Comandos básicos del <em>shell</em> de Linux.</h1>
+</div>
+<div class="cell markdown"><p>Abre un terminal shell para realizar cada ejercicio propuesto y finalmente escribir tu respuesta a continuación del enunciado. En caso de que el comando del ejercicio imprima salida por el terminal, después de la celda del ejercicio se muestra la salida de este comando para que puedas comprobar si tu respuesta es correcta o no.<br>
+A continuación, mostramos un ejercicios resuelto:</p>
+</div>
+
+        <div class="cell">
+            <div class="question">Escribe el comando para mostrar la fecha.</div>
+            <input type="text" name="cell8" id="cell8" value="date">
+        </div>
+        <div class="cell markdown"><p>SALIDA: </p>
+
+<div class="codehilite">
+<pre><span></span><code data-highlighted="yes" class="hljs language-yaml"><span class="hljs-string">jue</span> <span class="hljs-number">01</span> <span class="hljs-string">feb</span> <span class="hljs-number">2024 05:10:40 </span><span class="hljs-string">CET</span>
+</code></pre>
+</div>
+</div>
+<div class="cell markdown"><p>Ahora, puedes comenzar a resolver los ejercicios:</p>
+</div>
+
+        <div class="cell">
+            <div class="question">Escribe el comando para listar el contenido del directorio de trabajo actual.</div>
+            <input type="text" name="cell11" id="cell11" value="ls">
+        </div>
+        <div class="cell markdown"><p>SALIDA: </p>
+
+<div class="codehilite">
+<pre><span></span><code data-highlighted="yes" class="hljs language-css">Descargas   Escritorio  Música      <span class="hljs-selector-tag">P</span>úblico  Vídeos
+
+Documentos  Imágenes    Plantillas  snap     
+</code></pre>
+</div>
+</div>
+
+        <div class="cell">
+            <div class="question">Escribe el comando para borrar la pantalla del terminal.</div>
+            <input type="text" name="cell13" id="cell13" value="clear">
+        </div>
+        
+        <div class="cell">
+            <div class="question">Escribe el comando para cerrar el shell.</div>
+            <input type="text" name="cell14" id="cell14" value="exit">
+        </div>
+        <div class="cell markdown"><h3>Directorio de trabajo actual.</h3>
+
+<p>Abre de nuevo una terminal shell. </p>
+
+<p>Como hemos visto, para cambiar el directorio de trabajo se utiliza el comando <code>cd</code>, una abreviatura de “cambiar de directorio”.</p>
+</div>
+<div class="cell markdown"><ul>
+<li>Cámbiate al <strong>directorio raíz</strong>. Después muestra el directorio actual.</li>
+</ul>
+</div>
+
+        <div class="cell">
+            <div class="question"></div>
+            <input type="text" name="cell17" id="cell17" value="cd /">
+        </div>
+        
+        <div class="cell">
+            <div class="question"></div>
+            <input type="text" name="cell18" id="cell18" value="cd ../..">
+        </div>
+        <div class="cell markdown"><p>SALIDA:</p>
+
+<div class="codehilite">
+<pre><span></span><code data-highlighted="yes" class="hljs language-undefined">/
+</code></pre>
+</div>
+</div>
+<div class="cell markdown"><ul>
+<li>Lista el contenido del directorio actual.</li>
+</ul>
+</div>
+
+        <div class="cell">
+            <div class="question"></div>
+            <input type="text" name="cell21" id="cell21" value="ls">
+        </div>
+        <div class="cell markdown"><p>SALIDA:</p>
+
+<div class="codehilite">
+<pre><span></span><code data-highlighted="yes" class="hljs language-csharp">bin    etc    lib64       mnt   run   swapfile  <span class="hljs-keyword">var</span>
+
+boot   home   libx32      opt   sbin  sys
+
+cdrom  lib    lost+found  proc  snap  tmp
+
+dev    lib32  media       root  srv   usr
+</code></pre>
+</div>
+</div>
+<div class="cell markdown"><ul>
+<li>Desde el directorio raíz, cámbiate al directorio <code>home</code>, que es un subdirectorio inmediato de  <code>/</code>, con ruta relativa. Después, muestra el directorio actual. </li>
+</ul>
+</div>
+
+        <div class="cell">
+            <div class="question"></div>
+            <input type="text" name="cell24" id="cell24" value="cd /home">
+        </div>
+        
+        <div class="cell">
+            <div class="question"></div>
+            <input type="text" name="cell25" id="cell25" value="cd home">
+        </div>
+        <div class="cell markdown"><p>SALIDA:</p>
+
+<div class="codehilite">
+<pre><span></span><code data-highlighted="yes" class="hljs language-bash">/home
+</code></pre>
+</div>
+</div>
+<div class="cell markdown"><ul>
+<li>Lista el contenido del directorio actual. </li>
+</ul>
+</div>
+
+        <div class="cell">
+            <div class="question"></div>
+            <input type="text" name="cell28" id="cell28" value="ls">
+        </div>
+        <div class="cell markdown"><p>SALIDA:</p>
+
+<div class="codehilite">
+<pre><span></span><code data-highlighted="yes" class="hljs language-undefined">alumno
+</code></pre>
+</div>
+</div>
+<div class="cell markdown"><ul>
+<li>Sube al directorio padre del directorio de trabajo actual, en este caso de vuelta a “/”. Recuerda que se utiliza la sintaxis especial de dos puntos (..). NOTA: <em>No olvides el espacio entre “cd” y “..”, respetando siempre la estructura general de un comando (comando + opciones + parámetros, separados por espacios)</em>.</li>
+</ul>
+</div>
+
+        <div class="cell">
+            <div class="question"></div>
+            <input type="text" name="cell31" id="cell31" value="cd ..">
+        </div>
+        <div class="cell markdown"><ul>
+<li>Ahora vuelve al directorio home pero esta vez utilizando su ruta absoluta (recuerda que es aquella que comienza desde el directorio raíz “/”).</li>
+</ul>
+</div>
+
+        <div class="cell">
+            <div class="question"></div>
+            <input type="text" name="cell33" id="cell33" value="cd /home">
+        </div>
+        <div class="cell markdown"><ul>
+<li>Cámbiate a tu directorio de usuario de la forma más rápida abreviada posible y tras ello, muestra cuál es el directorio actual y lista su contenido:</li>
+</ul>
+</div>
+
+        <div class="cell">
+            <div class="question"></div>
+            <input type="text" name="cell35" id="cell35" value="cd ~">
+        </div>
+        
+        <div class="cell">
+            <div class="question"></div>
+            <input type="text" name="cell36" id="cell36" value="pwd">
+        </div>
+        <div class="cell markdown"><p>SALIDA:</p>
+
+<div class="codehilite">
+<pre><span></span><code data-highlighted="yes" class="hljs language-bash">/home/alumno
+</code></pre>
+</div>
+</div>
+
+        <div class="cell">
+            <div class="question"></div>
+            <input type="text" name="cell38" id="cell38" value="ls">
+        </div>
+        <div class="cell markdown"><p>SALIDA: </p>
+
+<div class="codehilite">
+<pre><span></span><code data-highlighted="yes" class="hljs language-css">Descargas   Escritorio  Música      <span class="hljs-selector-tag">P</span>úblico  Vídeos
+
+Documentos  Imágenes    Plantillas  snap     
+</code></pre>
+</div>
+</div>
+<div class="cell markdown"><ul>
+<li>Partiendo del directorio de trabajo actual, ve al directorio raís utilizando su ruta relativa. Recuerda que puedes usar <code>..</code> más de una vez si tienes que subir por varios niveles de directorios padre desde tu ubicación actual. Después, muestra dónde te encuentras. </li>
+</ul>
+</div>
+
+        <div class="cell">
+            <div class="question"></div>
+            <input type="text" name="cell41" id="cell41" value="cd ../..">
+        </div>
+        
+        <div class="cell">
+            <div class="question"></div>
+            <input type="text" name="cell42" id="cell42" value="pwd">
+        </div>
+        <div class="cell markdown"><p>SALIDA:</p>
+
+<div class="codehilite">
+<pre><span></span><code data-highlighted="yes" class="hljs language-undefined">/
+</code></pre>
+</div>
+</div>
+<div class="cell markdown"><ul>
+<li>Finalmente, regresa <em>de la forma más rápida posible</em> al directorio donde te encontrabas antes de último cambio de directorio:</li>
+</ul>
+</div>
+
+        <div class="cell">
+            <div class="question"></div>
+            <input type="text" name="cell45" id="cell45" value="cd -">
+        </div>
+        <div class="cell markdown"><ul>
+<li>Muestra donde te encuentras ahora:</li>
+</ul>
+</div>
+
+        <div class="cell">
+            <div class="question"></div>
+            <input type="text" name="cell47" id="cell47" value="pwd">
+        </div>
+        <div class="cell markdown"><p>SALIDA:</p>
+
+<div class="codehilite">
+<pre><span></span><code data-highlighted="yes" class="hljs language-bash">/home/alumno
+</code></pre>
+</div>
+</div>
+<div class="cell markdown"><ul>
+<li>¿Que comando aún más abreviado podrías haber utilizado para volver a tu directorio personal (<code>/home/alumno</code>)? </li>
+</ul>
+</div>
+
+        <div class="cell">
+            <div class="question"></div>
+            <input type="text" name="cell50" id="cell50" value="cd ~">
+        </div>
+        <div class="cell markdown"><h3>Rutas relativas y absolutas</h3>
+
+<p>La mayoría de los ejemplos que hemos visto hasta ahora utilizan rutas relativas. Es decir, el lugar en el que terminas depende de tu directorio de trabajo actual.</p>
+</div>
+<div class="cell markdown"><ul>
+<li>Cámbiate al directorio raíz utilizando su ruta absoluta</li>
+</ul>
+</div>
+
+        <div class="cell">
+            <div class="question"></div>
+            <input type="text" name="cell53" id="cell53" value="cd /">
+        </div>
+        <div class="cell markdown"><ul>
+<li>Ahora entra en el subdirectorio <code>etc</code> que cuelga directamente del directorio raíz. </li>
+</ul>
+</div>
+
+        <div class="cell">
+            <div class="question"></div>
+            <input type="text" name="cell55" id="cell55" value="cd etc">
+        </div>
+        
+        <div class="cell">
+            <div class="question"></div>
+            <input type="text" name="cell56" id="cell56" value="pwd">
+        </div>
+        <div class="cell markdown"><p>SALIDA:</p>
+
+<div class="codehilite">
+<pre><span></span><code data-highlighted="yes" class="hljs language-bash">/etc
+</code></pre>
+</div>
+</div>
+<div class="cell markdown"><ul>
+<li>Como ves, todo ha ido bien y deberías estar en <code>/etc</code>. Vuelve al directorio raíz pero ahora con una ruta relativa. </li>
+</ul>
+</div>
+
+        <div class="cell">
+            <div class="question"></div>
+            <input type="text" name="cell59" id="cell59" value="cd ..">
+        </div>
+        <div class="cell markdown"><p>Recuerda que una ruta absoluta siempre empieza por "/" y una ruta relativa SIEMPRE se interpreta desde el <strong>directorio de trabajo actual</strong> y por tanto se concatena a la ruta de este directorio. Una ruta relativa puede contener  '..' para referenciar al directorio padre o '.' para referenciar al directorio actual. </p>
+</div>
+<div class="cell markdown"><ul>
+<li>Desde tu directorio de trabajo actual (directorio raíz), ejecuta un comando <em>cd</em> que no te cambie de directorio, es decir, que te lleve al mismo directorio en el que estás. </li>
+</ul>
+</div>
+
+        <div class="cell">
+            <div class="question"></div>
+            <input type="text" name="cell62" id="cell62" value="cd .">
+        </div>
+        <div class="cell markdown"><ul>
+<li>Ahora entra en el directorio etc con una ruta relativa que comience con el carácter '.' que hace referencia al directorio actual. </li>
+</ul>
+</div>
+
+        <div class="cell">
+            <div class="question"></div>
+            <input type="text" name="cell64" id="cell64" value="cd ./etc">
+        </div>
+        <div class="cell markdown"><p>Como ves, <em>./etc</em> y <em>etc</em> son dos rutas relativas equivalentes ya que el carácter '.' es redundante puesto que significa ''dónde estoy ahora mismo''. </p>
+
+<ul>
+<li>Vuelve a tu directorio personal utilizando su ruta absoluta. Recuerda que esta ruta empieza por '/' (el directorio raíz) y por tanto no depende de tu ubicación actual. </li>
+</ul>
+</div>
+
+        <div class="cell">
+            <div class="question"></div>
+            <input type="text" name="cell66" id="cell66" value="cd /home/alumno">
+        </div>
+        <div class="cell markdown"><ul>
+<li>Ahora bien, si ejecutas <code>cd etc</code> estando tu directorio personal en vez de en el directorio raíz, ¿qué pasa?</li>
+</ul>
+</div>
+
+        <div class="cell">
+            <div class="question"></div>
+            <input type="text" name="cell68" id="cell68" value="no existe el archivo o directorio">
+        </div>
+        <div class="cell markdown"><p>SALIDA:</p>
+
+<div class="codehilite">
+<pre><span></span><code data-highlighted="yes" class="hljs language-bash">/bash: <span class="hljs-built_in">cd</span>: etc: No existe el archivo o el directorio
+</code></pre>
+</div>
+</div>
+<div class="cell markdown"><ul>
+<li>Ahora vuelve al último directorio en el que has estado justo antes del actual:</li>
+</ul>
+</div>
+
+        <div class="cell">
+            <div class="question"></div>
+            <input type="text" name="cell71" id="cell71" value="cd -">
+        </div>
+        <div class="cell markdown"><ul>
+<li>Ve al directorio 'Documentos' que cuelga directamente de tu <strong>directorio personal o home</strong>, utiliza el carácter '~' para formar la ruta absoluta de este directorio. Recuerda que el intérprete de órdenes expande esta tilde a la ruta absoluta de tu directorio home antes de ejecutar el comando <em>cd</em>.  </li>
+</ul>
+</div>
+
+        <div class="cell">
+            <div class="question"></div>
+            <input type="text" name="cell73" id="cell73" value="cd ~/Documentos">
+        </div>
+        
+        <div class="cell">
+            <div class="question"></div>
+            <input type="text" name="cell74" id="cell74" value="pwd">
+        </div>
+        <div class="cell markdown"><p>SALIDA:</p>
+
+<div class="codehilite">
+<pre><span></span><code data-highlighted="yes" class="hljs language-bash">/home/alumno/Documentos
+</code></pre>
+</div>
+</div>
+<div class="cell markdown"><p>Como habrás visto, el cambio de directorio especificando el nombre del directorio, o usando .., <strong>tendrá diferentes efectos dependiendo del directorio actual</strong>, es decir, desde el lugar desde el que empieces. Recuerda que <strong>todas las rutas a ficheros o directorios que NO empiecen por <code>/</code> (o <code>~</code>) son rutas relativas</strong> al directorio de trabajo actual, y por tanto, sólo tienen sentido en relación al directorio en el que te encuentres en ese momento.</p>
+</div>
+<div class="cell markdown"><p>En realidad, las rutas relativas funcionan porque todos los directorios del sistema de ficheros siempre contienen dos subdirectorios especiales, llamados  <code>.</code> y <code>..</code> que hacen referencia, respectivamente, al propio directorio y a su directorio padre. </p>
+
+<ul>
+<li>Haz un listado de tu directorio personal mostrando <strong>todos</strong> los ficheros incluso los ocultos (opción <code>-a</code>), y usando la <strong>ruta relativa</strong> (deberías estar en <code>~/Escritorio</code>), para comprobarlo:</li>
+</ul>
+</div>
+
+        <div class="cell">
+            <div class="question"></div>
+            <input type="text" name="cell78" id="cell78" value="ls -a ..">
+        </div>
+        <div class="cell markdown"><p>SALIDA:</p>
+
+<div class="codehilite">
+<pre><span></span><code data-highlighted="yes" class="hljs language-lua">.              Documentos          .<span class="hljs-keyword">local</span>      .sudo_as_admin_successful
+
+..             Escritorio          Música      .vboxclient-clipboard.pid
+
+.bash_history  .gnupg              .npm        .vboxclient-display-svga-x11.pid
+
+.bash_logout   Imágenes            Plantillas  .vboxclient-draganddrop.pid
+
+.bashrc        .ipynb_checkpoints  .profile    .vboxclient-seamless.pid
+
+.cache         .ipython            Público     Vídeos
+
+.<span class="hljs-built_in">config</span>        .jupyter            snap        
+
+Descargas      .lesshst            .ssh
+</code></pre>
+</div>
+</div>
+<div class="cell markdown"><h3>Apertura, creación y borrado de ficheros y directorios.</h3>
+
+<p>Ahora vamos a hacer uso de los ficheros de ejemplo que tienes disponibles en el Aula Virtual. Descarga el fichero <code>ficheros_ejemplo.zip</code>. Por defecto, el fichero se descargará en la carpeta Descargas de tu directorio personal. </p>
+
+<p>Desde el explorador de archivos gráfico, ve a la carpeta donde se encuentra este fichero, seleccionalo, haz clic en el botón derecho del ratón y selecciona <em>Extraer aquí</em>. </p>
+
+<p>Tendrás una carpeta <strong>ficheros_ejemplo</strong> cuyo árbol de directorios se puede observar a continuación:</p>
+</div>
+<div class="cell markdown"><pre><code data-highlighted="yes" class="hljs language-css">ficheros_ejemplo
+├── nano
+│&nbsp;&nbsp; ├── doc
+│&nbsp;&nbsp; ├── m4
+│&nbsp;&nbsp; ├── po
+│&nbsp;&nbsp; ├── <span class="hljs-attribute">src</span>
+│&nbsp;&nbsp; └── syntax
+│&nbsp;&nbsp;     └── extra
+└── sample_files
+    ├── <span class="hljs-selector-tag">audio</span>
+    │&nbsp;&nbsp; ├── mp3
+    │&nbsp;&nbsp; ├── ogg
+    │&nbsp;&nbsp; ├── wav
+    │&nbsp;&nbsp; └── wma
+    ├── document
+    │&nbsp;&nbsp; ├── doc
+    │&nbsp;&nbsp; ├── docx
+    │&nbsp;&nbsp; ├── pdf
+    │&nbsp;&nbsp; ├── rtf
+    │&nbsp;&nbsp; ├── txt
+    │&nbsp;&nbsp; ├── xls
+    │&nbsp;&nbsp; └── xlsx
+    ├── image
+    │&nbsp;&nbsp; ├── bmp
+    │&nbsp;&nbsp; ├── gif
+    │&nbsp;&nbsp; ├── jpg
+    │&nbsp;&nbsp; ├── png
+    │&nbsp;&nbsp; └── tiff
+    └── <span class="hljs-selector-tag">video</span>
+        ├── flv
+        ├── mkv
+        ├── mov
+        └── mp4
+
+</code></pre>
+</div>
+<div class="cell markdown"><p>Desde la terminal de comandos, situáte en el directorio <strong>ficheros_ejemplo</strong> (por ejemplo, si se ha descargado en Descargas, ejecuta cd /home/alumno/Descargas/ficheros_ejemplo.</p>
+
+<p>Realiza los siguientes ejercicios, utilizando <strong>RUTAS RELATIVAS</strong> por defecto. En los ejercicios que se indique ruta absoluta, no se debe usar ninguna ruta relativa. Recuerda que cada pregunta se responde con <strong>1 único comando</strong>. </p>
+
+<p><span style="color: red;">Recuerda utilizar el tabulador </span> para facilitar la navegación por el sistema de ficheros al autocompletar los nombres de ficheros y directorios.</p>
+</div>
+
+        <div class="cell">
+            <div class="question">Cambia al directorio "nano" que hay dentro de "ficheros_ejemplo"</div>
+            <input type="text" name="cell83" id="cell83" value="cd nano">
+        </div>
+        
+        <div class="cell">
+            <div class="question">Haz un listado del directorio actual mostrando los ficheros ocultos</div>
+            <input type="text" name="cell84" id="cell84" value="ls -a">
+        </div>
+        <div class="cell markdown"><p>SALIDA:</p>
+
+<div class="codehilite">
+<pre><span></span><code data-highlighted="yes" class="hljs language-css">.   AUTHORS     ChangeLog            ChangeLog.<span class="hljs-number">2007</span>-<span class="hljs-number">2015</span>  COPYING      doc      <span class="hljs-selector-class">.gitignore</span>    m4           nano-regress  po      README<span class="hljs-selector-class">.hacking</span>     <span class="hljs-attribute">src</span>     THANKS
+
+..  autogen<span class="hljs-selector-class">.sh</span>  ChangeLog.<span class="hljs-number">1999</span>-<span class="hljs-number">2006</span>  configure<span class="hljs-selector-class">.ac</span>         COPYING<span class="hljs-selector-class">.DOC</span>  <span class="hljs-selector-class">.github</span>  IMPROVEMENTS  Makefile<span class="hljs-selector-class">.am</span>  NEWS          README  roll-<span class="hljs-selector-tag">a</span>-release<span class="hljs-selector-class">.sh</span>  syntax  TODO
+</code></pre>
+</div>
+</div>
+
+        <div class="cell">
+            <div class="question">Abre el fichero faq.html que hay en el subdirectorio "doc" con el editor "nano". Una vez abierto, escribe "Hola mundo" en la primera línea y guarda los cambios (teclas `Ctl 0`+`Ctl X`).</div>
+            <input type="text" name="cell86" id="cell86" value="nano doc/faq.html">
+        </div>
+        
+        <div class="cell">
+            <div class="question">Ahora vamos a usar los ficheros de "sample_files" Empieza cambiando al directorio "sample_files" desde tu directorio de trabajo actual</div>
+            <input type="text" name="cell87" id="cell87" value="cd ../samples_files/">
+        </div>
+        
+        <div class="cell">
+            <div class="question">Cambia al subdirectorio "txt" , situado en "document"</div>
+            <input type="text" name="cell88" id="cell88" value="cd document/txt">
+        </div>
+        
+        <div class="cell">
+            <div class="question">Guarda una copia del fichero "sample1.txt" llamada "copia_sample1.txt" en el mismo directorio</div>
+            <input type="text" name="cell89" id="cell89" value="cp sample1.txt copia_sample1.txt">
+        </div>
+        
+        <div class="cell">
+            <div class="question">Muestra el contenido del directorio "pdf"</div>
+            <input type="text" name="cell90" id="cell90" value="ls ../pdf/">
+        </div>
+        <div class="cell markdown"><p>SALIDA:</p>
+
+<div class="codehilite">
+<pre><span></span><code data-highlighted="yes" class="hljs language-undefined">file-example_PDF_1MB.pdf  file-example_PDF_500_kB.pdf  file-sample_150kB.pdf  sample1.pdf  sample2.pdf  sample3.pdf
+</code></pre>
+</div>
+</div>
+
+        <div class="cell">
+            <div class="question">Haz un listado largo del directorio "xls"</div>
+            <input type="text" name="cell92" id="cell92" value="ls -l ../xls">
+        </div>
+        <div class="cell markdown"><p>SALIDA:</p>
+
+<div class="codehilite">
+<pre><span></span><code data-highlighted="yes" class="hljs language-yaml"><span class="hljs-string">total</span> <span class="hljs-number">888</span>
+
+<span class="hljs-string">-rw-rw-r--</span> <span class="hljs-number">1</span> <span class="hljs-string">alumno</span> <span class="hljs-string">alumno</span> <span class="hljs-number">140288</span> <span class="hljs-string">sep</span>  <span class="hljs-number">7</span>  <span class="hljs-number">2023 </span><span class="hljs-string">file_example_XLS_1000.xls</span>
+
+<span class="hljs-string">-rw-rw-r--</span> <span class="hljs-number">1</span> <span class="hljs-string">alumno</span> <span class="hljs-string">alumno</span>  <span class="hljs-number">20480</span> <span class="hljs-string">sep</span>  <span class="hljs-number">7</span>  <span class="hljs-number">2023 </span><span class="hljs-string">file_example_XLS_100.xls</span>
+
+<span class="hljs-string">-rw-rw-r--</span> <span class="hljs-number">1</span> <span class="hljs-string">alumno</span> <span class="hljs-string">alumno</span>   <span class="hljs-number">8704 </span><span class="hljs-string">sep</span>  <span class="hljs-number">7</span>  <span class="hljs-number">2023 </span><span class="hljs-string">file_example_XLS_10.xls</span>
+
+<span class="hljs-string">-rw-rw-r--</span> <span class="hljs-number">1</span> <span class="hljs-string">alumno</span> <span class="hljs-string">alumno</span> <span class="hljs-number">672256</span> <span class="hljs-string">sep</span>  <span class="hljs-number">7</span>  <span class="hljs-number">2023 </span><span class="hljs-string">file_example_XLS_5000.xls</span>
+
+<span class="hljs-string">-rw-rw-r--</span> <span class="hljs-number">1</span> <span class="hljs-string">alumno</span> <span class="hljs-string">alumno</span>  <span class="hljs-number">13824</span> <span class="hljs-string">sep</span>  <span class="hljs-number">7</span>  <span class="hljs-number">2023 </span><span class="hljs-string">file_example_XLS_50.xls</span>
+
+<span class="hljs-string">-rw-rw-r--</span> <span class="hljs-number">1</span> <span class="hljs-string">alumno</span> <span class="hljs-string">alumno</span>  <span class="hljs-number">16384</span> <span class="hljs-string">sep</span>  <span class="hljs-number">7</span>  <span class="hljs-number">2023 </span><span class="hljs-string">sample1.xls</span>
+
+<span class="hljs-string">-rw-rw-r--</span> <span class="hljs-number">1</span> <span class="hljs-string">alumno</span> <span class="hljs-string">alumno</span>   <span class="hljs-number">7168 </span><span class="hljs-string">sep</span>  <span class="hljs-number">7</span>  <span class="hljs-number">2023 </span><span class="hljs-string">sample2.xls</span>
+
+<span class="hljs-string">-rw-rw-r--</span> <span class="hljs-number">1</span> <span class="hljs-string">alumno</span> <span class="hljs-string">alumno</span>  <span class="hljs-number">13312</span> <span class="hljs-string">sep</span>  <span class="hljs-number">7</span>  <span class="hljs-number">2023 </span><span class="hljs-string">sample3.xls</span>
+</code></pre>
+</div>
+</div>
+
+        <div class="cell">
+            <div class="question">Vuelve al último directorio en el que has estado (nota: sin utilizar su ruta relativa o absoluta en el comando)</div>
+            <input type="text" name="cell94" id="cell94" value="cd -">
+        </div>
+        
+        <div class="cell">
+            <div class="question">Muestra dónde te encuentras</div>
+            <input type="text" name="cell95" id="cell95" value="pwd">
+        </div>
+        <div class="cell markdown"><p>SALIDA:</p>
+
+<div class="codehilite">
+<pre><span></span><code data-highlighted="yes" class="hljs language-swift"><span class="hljs-regexp">/home/</span>alumno<span class="hljs-regexp">/ficheros_ejemplo/</span>sample_files
+</code></pre>
+</div>
+</div>
+
+        <div class="cell">
+            <div class="question">Cámbiate al directorio "jpg" situado en "image" utilizando su ruta absoluta</div>
+            <input type="text" name="cell97" id="cell97" value="cd ~/Descargas/ficheros_ejemplo/sample_files/image/jpg">
+        </div>
+        
+        <div class="cell">
+            <div class="question">Haz un listado del directorio "png"</div>
+            <input type="text" name="cell98" id="cell98" value="ls ../png/">
+        </div>
+        <div class="cell markdown"><p>SALIDA:</p>
+
+<div class="codehilite">
+<pre><span></span><code data-highlighted="yes" class="hljs language-undefined">animal_pattern.png   barbeshop_item_silhouettes.png  butterflies_shaped_leaves.png  digital_camera.png  iconic_london_landmark.png  pink_coffee_mug.png  vintage_bmw_car.png
+
+assorted_houses.png  buldog_cartoon.png              cherry_blossom_tree.png        face_mask.png       koi_fish.png                rose.png             wheat_silhouette.png
+
+baran_skull.png      burger.png                      cosmos_rocket_cartoon.png      gear_clock.png      oil_towers.png              stegosaurus.png
+</code></pre>
+</div>
+</div>
+
+        <div class="cell">
+            <div class="question">Haz un listado del directorio "mp4" situado dentro de "videos"</div>
+            <input type="text" name="cell100" id="cell100" value="ls ../../video/mp4">
+        </div>
+        <div class="cell markdown"><p>SALIDA:</p>
+
+<div class="codehilite">
+<pre><span></span><code data-highlighted="yes" class="hljs language-undefined">astronaut_flying_fantasy.mp4  cherry_flower_blossom.mp4  coffee_beans.mp4    dogs_playing.mp4             morning_fog.mp4          plum_flower_blossom.mp4       seoul_traffic_car.mp4
+
+birds_on_branch.mp4           city_forest_rainbow.mp4    couple_jogging.mp4  kayak_surfing_ocean.mp4      mountain_sky.mp4         puppy_running.mp4             stary_sky.mp4
+
+cheetah_strolling.mp4         cliff_waterfall.mp4        desert.mp4          magnolia_flower_blossom.mp4  neon_subscribe_sign.mp4  seoul_street_night_light.mp4
+</code></pre>
+</div>
+</div>
+
+        <div class="cell">
+            <div class="question">Vuelve al directorio "ficheros_ejemplo"</div>
+            <input type="text" name="cell102" id="cell102" value="cd ../../..">
+        </div>
+        
+        <div class="cell">
+            <div class="question">Muestra tu directorio de trabajo actual</div>
+            <input type="text" name="cell103" id="cell103" value="pwd">
+        </div>
+        <div class="cell markdown"><p>SALIDA:</p>
+
+<div class="codehilite">
+<pre><span></span><code data-highlighted="yes" class="hljs language-bash">/home/alumno/ficheros_ejemplo
+</code></pre>
+</div>
+</div>
+
+        <div class="cell">
+            <div class="question">Crea un directorio llamado prac1</div>
+            <input type="text" name="cell105" id="cell105" value="mkdir prac1">
+        </div>
+        
+        <div class="cell">
+            <div class="question">Cámbiate al directorio que acabas de crear</div>
+            <input type="text" name="cell106" id="cell106" value="cd prac1">
+        </div>
+        
+        <div class="cell">
+            <div class="question">Crea en el directorio actual un fichero que se llame "fichero.txt" (sin utilizar ningún editor de texto)</div>
+            <input type="text" name="cell107" id="cell107" value="touch fichero.txt">
+        </div>
+        
+        <div class="cell">
+            <div class="question">Lista de forma detallada este fichero</div>
+            <input type="text" name="cell108" id="cell108" value="ls -la fichero.txt">
+        </div>
+        <div class="cell markdown"><p>SALIDA:</p>
+
+<div class="codehilite">
+<pre><span></span><code data-highlighted="yes" class="hljs language-diff"><span class="hljs-deletion">-rw-rw-r-- 1 alumno alumno 0 may  7 11:28 fichero.txt</span>
+</code></pre>
+</div>
+</div>
+
+        <div class="cell">
+            <div class="question">Vuelve a tu directorio personal con una ruta relativa.</div>
+            <input type="text" name="cell110" id="cell110" value="cd ../../..">
+        </div>
+        
+        <div class="cell">
+            <div class="question">Copia el fichero "fichero.txt" del directorio prac1 que acabas de crear en tu directorio actual</div>
+            <input type="text" name="cell111" id="cell111" value="cp Descargas/fichero_ejemplo/prac1/fichero.txt">
+        </div>
+        
+        <div class="cell">
+            <div class="question">Borra el directorio prac1</div>
+            <input type="text" name="cell112" id="cell112" value="rm -r Descargas/ficheros_ejemplo/prac1">
+        </div>
+        <div class="cell markdown"><h1>2: Comodines del shell de Linux y movimiento de ficheros</h1>
+</div>
+<div class="cell markdown"><p>Vamos a continuar con los ficheros de ejemplo que has utilizado en el bloque anterior. Realiza los siguientes ejercicios, utilizando en todo caso <strong>RUTAS RELATIVAS</strong>. </p>
+
+<p><span style="color: red;">Recuerda utilizar el tabulador </span> para facilitar la navegación por el sistema de ficheros al autocompletar los nombres de ficheros y directorios.</p>
+</div>
+
+        <div class="cell">
+            <div class="question">Situáte en el directorio image del directorio sample_files del directorio ficheros_ejemplo</div>
+            <input type="text" name="cell115" id="cell115" value="cd Descargas/fichero_ejemplo/sample_files/image">
+        </div>
+        
+        <div class="cell">
+            <div class="question">Lista todos los ficheros situados en "jpg" cuyo nombre tenga exactamente 7 caracteres seguidos de ".jpg"</div>
+            <input type="text" name="cell116" id="cell116" value="ls jpg/???????.jpg">
+        </div>
+        <div class="cell markdown"><p>SALIDA: </p>
+
+<div class="codehilite">
+<pre><span></span><code data-highlighted="yes" class="hljs language-bash">jpg/bitcoin.jpg
+</code></pre>
+</div>
+</div>
+
+        <div class="cell">
+            <div class="question">Lista todos los ficheros situados en "jpg" cuyo nombre contenga la cadena "le"</div>
+            <input type="text" name="cell118" id="cell118" value="ls image/jpg/*le*">
+        </div>
+        <div class="cell markdown"><p>SALIDA: </p>
+
+<div class="codehilite">
+<pre><span></span><code data-highlighted="yes" class="hljs language-bash">jpg/assorted_pebble_rocks.jpg  jpg/elephants.jpg
+jpg/eagle_closeup.jpg          jpg/lemon_patern_wallpaper.jpg
+</code></pre>
+</div>
+</div>
+
+        <div class="cell">
+            <div class="question">Lista todos los ficheros situados en "jpg" cuyo nombre comience con dos caracteres cualquiera seguidos de la cadena "sort"</div>
+            <input type="text" name="cell120" id="cell120" value="ls image/jpg/??sort*">
+        </div>
+        <div class="cell markdown"><p>SALIDA: </p>
+
+<div class="codehilite">
+<pre><span></span><code data-highlighted="yes" class="hljs language-bash">jpg/assorted_colour_laser_light.jpg  jpg/assorted_pebble_rocks.jpg
+</code></pre>
+</div>
+</div>
+
+        <div class="cell">
+            <div class="question">Lista todos los ficheros situados en "jpg" cuyo nombre NO comienze por los caracteres de la 'b' a la 't'</div>
+            <input type="text" name="cell122" id="cell122" value="ls image/jpg/[^b-t]*">
+        </div>
+        <div class="cell markdown"><p>SALIDA: </p>
+
+<div class="codehilite">
+<pre><span></span><code data-highlighted="yes" class="hljs language-bash">jpg/assorted_colour_laser_light.jpg  jpg/waterfall_long_exposure.jpg
+jpg/assorted_pebble_rocks.jpg        jpg/yorkshire_terrier_dog.jpg
+jpg/waterfall_long_exposure_2.jpg
+</code></pre>
+</div>
+</div>
+
+        <div class="cell">
+            <div class="question">Lista todos los ficheros situados en cualquier subdirectorio inmediato de "image" (bmp, gif, etc.) cuyo nombre contenga al menos un carácter numérico</div>
+            <input type="text" name="cell124" id="cell124" value="ls image/*/*[1,9]*">
+        </div>
+        <div class="cell markdown"><p>SALIDA: </p>
+
+<div class="codehilite">
+<pre><span></span><code data-highlighted="yes" class="hljs language-bash">jpg/waterfall_long_exposure_2.jpg
+</code></pre>
+</div>
+</div>
+
+        <div class="cell">
+            <div class="question">Lista todos los ficheros situados en cualquier subdirectorio inmediato de "image" (bmp, gif, etc.) cuyo nombre contenga las cadenas "fall" o "bri", y acaben con la letra 'g' o 'f'</div>
+            <input type="text" name="cell126" id="cell126" value="ls image /*/*{fall*,bri*}[g,f]">
+        </div>
+        <div class="cell markdown"><p>SALIDA: </p>
+
+<div class="codehilite">
+<pre><span></span><code data-highlighted="yes" class="hljs language-bash">jpg/waterfall_long_exposure_2.jpg  tiff/london_bridge.tiff
+jpg/waterfall_long_exposure.jpg    tiff/rolled_fabric_stack.tiff
+</code></pre>
+</div>
+</div>
+
+        <div class="cell">
+            <div class="question">Cámbiate al directorio padre</div>
+            <input type="text" name="cell128" id="cell128" value="cd ..">
+        </div>
+        
+        <div class="cell">
+            <div class="question">Lista su contenido</div>
+            <input type="text" name="cell129" id="cell129" value="ls ">
+        </div>
+        <div class="cell markdown"><p>SALIDA: </p>
+
+<div class="codehilite">
+<pre><span></span><code data-highlighted="yes" class="hljs language-css"><span class="hljs-selector-tag">audio</span>  document  image  LICENSE  README<span class="hljs-selector-class">.md</span>  <span class="hljs-selector-tag">video</span>
+</code></pre>
+</div>
+</div>
+
+        <div class="cell">
+            <div class="question">Crea una copia íntegra del directorio "document" llamada "docu" (Pista: opción -r)</div>
+            <input type="text" name="cell131" id="cell131" value="cp -r document docu">
+        </div>
+        
+        <div class="cell">
+            <div class="question">Lista el contenido de los directorios "txt", "rtf" y "xls" (situados dentro de "docu")</div>
+            <input type="text" name="cell132" id="cell132" value="ls docu/{txt,rtf,xls}">
+        </div>
+        <div class="cell markdown"><p>SALIDA: </p>
+
+<div class="codehilite">
+<pre><span></span><code data-highlighted="yes" class="hljs language-bash">docu/rtf:
+file-sample_100kB.rtf  file-sample_300kB.rtf
+file-sample_1MB.rtf    file-sample_500kB.rtf
+
+docu/txt:
+sample1.txt  sample2.txt  sample3.txt
+
+docu/xls:
+file_example_XLS_1000.xls  file_example_XLS_5000.xls  sample2.xls
+file_example_XLS_100.xls   file_example_XLS_50.xls    sample3.xls
+file_example_XLS_10.xls    sample1.xls
+</code></pre>
+</div>
+</div>
+
+        <div class="cell">
+            <div class="question">Crea cuatro directorios llamados samples1 samples2 samples3 samples4</div>
+            <input type="text" name="cell134" id="cell134" value="mkdir samples1 samples2 sampples3 samples4">
+        </div>
+        
+        <div class="cell">
+            <div class="question">Copia el fichero "sample1.txt" (situado en "docu/txt") al directorio "samples1"</div>
+            <input type="text" name="cell135" id="cell135" value="cp docu/text/sample1.txt samples1/sample1.txt">
+        </div>
+        
+        <div class="cell">
+            <div class="question">Copia el fichero "sample2.txt" (situado en "docu/txt") al directorio "samples1", de forma que la nueva copia se llame "ejemplo2.txt"</div>
+            <input type="text" name="cell136" id="cell136" value="cp docu/txt/sample2.txt sample1/ejemplo2.txt">
+        </div>
+        
+        <div class="cell">
+            <div class="question">Mueve el fichero "sample3.txt" (situado en "docu/txt") al directorio "samples1", de forma que ahora se llame "ejemplo3.txt"</div>
+            <input type="text" name="cell137" id="cell137" value="mv docu/txt/sample3.txt samples1/ejemplo3.txt">
+        </div>
+        
+        <div class="cell">
+            <div class="question">Mueve los ficheros cuyo nombre contenga la cadena "sample" (situados en "docu/rft") al directorio "samples1"</div>
+            <input type="text" name="cell138" id="cell138" value="mv docu/rft/*sample* saples1/">
+        </div>
+        
+        <div class="cell">
+            <div class="question"></div>
+            <input type="text" name="cell139" id="cell139" value="ls sample1/">
+        </div>
+        <div class="cell markdown"><p>SALIDA: </p>
+
+<div class="codehilite">
+<pre><span></span><code data-highlighted="yes" class="hljs language-undefined">ejemplo2.txt  file-sample_100kB.rtf  file-sample_300kB.rtf  sample1.txt
+ejemplo3.txt  file-sample_1MB.rtf    file-sample_500kB.rtf
+</code></pre>
+</div>
+</div>
+
+        <div class="cell">
+            <div class="question">Borra los ficheros del directorio "sample1" cuyo nombre contenga dos caracteres numéricos consecutivos</div>
+            <input type="text" name="cell141" id="cell141" value="rm samples1/*[0,9][0,9]*">
+        </div>
+        
+        <div class="cell">
+            <div class="question"></div>
+            <input type="text" name="cell142" id="cell142" value="ls sample1/">
+        </div>
+        <div class="cell markdown"><p>SALIDA: </p>
+
+<div class="codehilite">
+<pre><span></span><code data-highlighted="yes" class="hljs language-undefined">ejemplo2.txt  ejemplo3.txt  file-sample_1MB.rtf  sample1.txt
+</code></pre>
+</div>
+</div>
+
+        <div class="cell">
+            <div class="question">Copia los ficheros que empiecen por f y acaben por .xls (situados en "docu/xls") al directorio "samples2"</div>
+            <input type="text" name="cell144" id="cell144" value="cp docu/xls/f*.xls samples2/">
+        </div>
+        
+        <div class="cell">
+            <div class="question"></div>
+            <input type="text" name="cell145" id="cell145" value="ls samples2/">
+        </div>
+        <div class="cell markdown"><p>SALIDA: </p>
+
+<div class="codehilite">
+<pre><span></span><code data-highlighted="yes" class="hljs language-undefined">file_example_XLS_1000.xls  file_example_XLS_10.xls    file_example_XLS_50.xls
+file_example_XLS_100.xls   file_example_XLS_5000.xls
+</code></pre>
+</div>
+</div>
+
+        <div class="cell">
+            <div class="question">Copia todos los ficheros situados en "samples1" al directorio "samples2"</div>
+            <input type="text" name="cell147" id="cell147" value="cd -r samples1/* samples2/">
+        </div>
+        
+        <div class="cell">
+            <div class="question"></div>
+            <input type="text" name="cell148" id="cell148" value="ls samples2/">
+        </div>
+        <div class="cell markdown"><p>SALIDA: </p>
+
+<div class="codehilite">
+<pre><span></span><code data-highlighted="yes" class="hljs language-undefined">ejemplo2.txt               file_example_XLS_100.xls   file_example_XLS_50.xls
+ejemplo3.txt               file_example_XLS_10.xls    file-sample_1MB.rtf
+file_example_XLS_1000.xls  file_example_XLS_5000.xls  sample1.txt
+</code></pre>
+</div>
+</div>
+
+        <div class="cell">
+            <div class="question">Renombra el fichero "file_example_XLS_100.xls" en la carpeta "samples2" para que pase a llamarse "ejemplo_100.xls"</div>
+            <input type="text" name="cell150" id="cell150" value="mv samples2/file_example_XLS_100.xls samples2/ejemplo_100.xls">
+        </div>
+        
+        <div class="cell">
+            <div class="question">Borra los ficheros cuyo nombre contenga las cadena "sample" o "example", situados en el directorio "samples2"</div>
+            <input type="text" name="cell151" id="cell151" value="rm r- samples2/*{sample*, example*}*">
+        </div>
+        
+        <div class="cell">
+            <div class="question"></div>
+            <input type="text" name="cell152" id="cell152" value="ls samples2/">
+        </div>
+        <div class="cell markdown"><p>SALIDA: </p>
+
+<div class="codehilite">
+<pre><span></span><code data-highlighted="yes" class="hljs language-undefined">ejemplo_100.xls  ejemplo2.txt  ejemplo3.txt
+</code></pre>
+</div>
+</div>
+
+        <div class="cell">
+            <div class="question">Copia los ficheros cuyo nombre comience por "sample" que estén situados en cualquier subdirectorio inmediato de "docu" (p.ej. docu/txt, docu/pdf, ...). al directorio "samples3"</div>
+            <input type="text" name="cell154" id="cell154" value="cp docu/*/*sample* samples3/">
+        </div>
+        
+        <div class="cell">
+            <div class="question"></div>
+            <input type="text" name="cell155" id="cell155" value="ls sample3/">
+        </div>
+        <div class="cell markdown"><p>SALIDA: </p>
+
+<div class="codehilite">
+<pre><span></span><code data-highlighted="yes" class="hljs language-undefined">sample1.doc   sample1.xls   sample2.pdf   sample3.docx  sample4.docx
+sample1.docx  sample1.xlsx  sample2.txt   sample3.pdf
+sample1.pdf   sample2.doc   sample2.xls   sample3.xls
+sample1.txt   sample2.docx  sample2.xlsx  sample3.xlsx
+</code></pre>
+</div>
+</div>
+
+        <div class="cell">
+            <div class="question">Borra los ficheros de "samples3" cuyo nombre contenga el carácter x o el carácter f</div>
+            <input type="text" name="cell157" id="cell157" value="rm samples3/*[x,f]*">
+        </div>
+        
+        <div class="cell">
+            <div class="question"></div>
+            <input type="text" name="cell158" id="cell158" value="ls samples3/">
+        </div>
+        <div class="cell markdown"><p>SALIDA: </p>
+
+<div class="codehilite">
+<pre><span></span><code data-highlighted="yes" class="hljs language-undefined">sample1.doc  sample2.doc
+</code></pre>
+</div>
+</div>
+
+        <div class="cell">
+            <div class="question">Copia los ficheros cuyo nombre termine por "pdf" o "doc", situados en cualquier subdirectorio inmediato de "docu", al directorio samples4</div>
+            <input type="text" name="cell160" id="cell160" value="cp docu/*/*.{pdf,doc} samples4/">
+        </div>
+        
+        <div class="cell">
+            <div class="question"></div>
+            <input type="text" name="cell161" id="cell161" value="ls samples4/">
+        </div>
+        <div class="cell markdown"><p>SALIDA: </p>
+
+<div class="codehilite">
+<pre><span></span><code data-highlighted="yes" class="hljs language-undefined">file-example_PDF_1MB.pdf     file-sample_150kB.pdf  sample1.doc  sample2.pdf
+file-example_PDF_500_kB.pdf  file-sample_1MB.doc    sample1.pdf  sample3.pdf
+file-sample_100kB.doc        file-sample_500kB.doc  sample2.doc
+</code></pre>
+</div>
+</div>
+
+        <div class="cell">
+            <div class="question">Copia los ficheros cuyo nombre empiece por "sample", situados en los directorios "docx" o "xlsx" al directorio "samples4"</div>
+            <input type="text" name="cell163" id="cell163" value="cd docu/{docx,xlsx}/sample* samples4/">
+        </div>
+        
+        <div class="cell">
+            <div class="question"></div>
+            <input type="text" name="cell164" id="cell164" value="ls samples4/">
+        </div>
+        <div class="cell markdown"><p>SALIDA: </p>
+
+<div class="codehilite">
+<pre><span></span><code data-highlighted="yes" class="hljs language-undefined">file-example_PDF_1MB.pdf     file-sample_500kB.doc  sample2.doc   sample3.pdf
+file-example_PDF_500_kB.pdf  sample1.doc            sample2.docx  sample3.xlsx
+file-sample_100kB.doc        sample1.docx           sample2.pdf   sample4.docx
+file-sample_150kB.pdf        sample1.pdf            sample2.xlsx
+file-sample_1MB.doc          sample1.xlsx           sample3.docx
+</code></pre>
+</div>
+</div>
+
+        <div class="cell">
+            <div class="question">Borra los ficheros de "samples4" que terminen en "docx" y contengan un carácter numérico menor que 4</div>
+            <input type="text" name="cell166" id="cell166" value="rm samples4/*[1-3]*docx*">
+        </div>
+        
+        <div class="cell">
+            <div class="question">Lista los ficheros de "samples4" que acaben en ".docx"</div>
+            <input type="text" name="cell167" id="cell167" value="ls samples4/*.docx">
+        </div>
+        <div class="cell markdown"><p>SALIDA: </p>
+
+<div class="codehilite">
+<pre><span></span><code data-highlighted="yes" class="hljs language-bash">samples4/sample4.docx
+</code></pre>
+</div>
+</div>
+
+        <div class="cell">
+            <div class="question">Mueve al directorio padre los ficheros de "samples4" cuyo nombre contenga un carácter numérico seguido de una letra mayúscula o minúscula</div>
+            <input type="text" name="cell169" id="cell169" value="mv samples4/*[A-Z,a-z][1,9]* ">
+        </div>
+        
+        <div class="cell">
+            <div class="question">Lista los ficheros del directorio padre que empiecen por "file"</div>
+            <input type="text" name="cell170" id="cell170" value="ls ../file*">
+        </div>
+        <div class="cell markdown"><p>SALIDA: </p>
+
+<div class="codehilite">
+<pre><span></span><code data-highlighted="yes" class="hljs language-bash">../file-example_PDF_1MB.pdf  ../file-sample_150kB.pdf  ../file-sample_500kB.doc
+../file-sample_100kB.doc     ../file-sample_1MB.doc
+</code></pre>
+</div>
+</div>
+
+        <div class="cell">
+            <div class="question">Lista el contenido del directorio "src" que hay dentro de "nano" (Mira el árbol de directorios al principio del notebook para averiguar la ruta relativa a "nano" desde "sample_files")</div>
+            <input type="text" name="cell172" id="cell172" value="ls ../nano/src/">
+        </div>
+        <div class="cell markdown"><p>SALIDA: </p>
+
+<div class="codehilite">
+<pre><span></span><code data-highlighted="yes" class="hljs language-scss">browser<span class="hljs-selector-class">.c</span>  definitions<span class="hljs-selector-class">.h</span>  history<span class="hljs-selector-class">.c</span>    prompt<span class="hljs-selector-class">.c</span>      text<span class="hljs-selector-class">.c</span>
+chars<span class="hljs-selector-class">.c</span>    files<span class="hljs-selector-class">.c</span>        Makefile<span class="hljs-selector-class">.am</span>  prototypes<span class="hljs-selector-class">.h</span>  utils<span class="hljs-selector-class">.c</span>
+<span class="hljs-attribute">color</span><span class="hljs-selector-class">.c</span>    global<span class="hljs-selector-class">.c</span>       move<span class="hljs-selector-class">.c</span>       rcfile<span class="hljs-selector-class">.c</span>      winio<span class="hljs-selector-class">.c</span>
+cut<span class="hljs-selector-class">.c</span>      help<span class="hljs-selector-class">.c</span>         nano<span class="hljs-selector-class">.c</span>       search<span class="hljs-selector-class">.c</span>
+</code></pre>
+</div>
+</div>
+
+        <div class="cell">
+            <div class="question">Crea un directorio llamado "source"</div>
+            <input type="text" name="cell174" id="cell174" value="mkdir source">
+        </div>
+        
+        <div class="cell">
+            <div class="question">Copia al directorio "source" los ficheros del directorio "src" que hay en "nano" cuyo nombre acaba en ".h"</div>
+            <input type="text" name="cell175" id="cell175" value="cp ../nano/src/*.h source/">
+        </div>
+        
+        <div class="cell">
+            <div class="question"></div>
+            <input type="text" name="cell176" id="cell176" value="ls source/">
+        </div>
+        <div class="cell markdown"><p>SALIDA: </p>
+
+<div class="codehilite">
+<pre><span></span><code data-highlighted="yes" class="hljs language-undefined">definitions.h  prototypes.h
+</code></pre>
+</div>
+</div>
+
+        <div class="cell">
+            <div class="question">Copia al directorio "source" los ficheros del directorio "src" que hay en "nano" cuyo nombre empieza por "c" seguido de una vocal</div>
+            <input type="text" name="cell178" id="cell178" value="cp ../nano/src/c[AEIOU.aeiou]* source/">
+        </div>
+        
+        <div class="cell">
+            <div class="question"></div>
+            <input type="text" name="cell179" id="cell179" value="ls source/">
+        </div>
+        <div class="cell markdown"><p>SALIDA: </p>
+
+<div class="codehilite">
+<pre><span></span><code data-highlighted="yes" class="hljs language-css"><span class="hljs-attribute">color</span><span class="hljs-selector-class">.c</span>  cut<span class="hljs-selector-class">.c</span>  definitions<span class="hljs-selector-class">.h</span>  prototypes<span class="hljs-selector-class">.h</span>
+</code></pre>
+</div>
+</div>
+
+        <div class="cell">
+            <div class="question">Copia al directorio "source" los ficheros del directorio "src" que hay en "nano" cuyo nombre contiene la cadena "to" o la cadena "pro", y acaben por ".c"</div>
+            <input type="text" name="cell181" id="cell181" value="cp ../nano/src/*{to,pro}*.c source/">
+        </div>
+        
+        <div class="cell">
+            <div class="question"></div>
+            <input type="text" name="cell182" id="cell182" value="ls source/">
+        </div>
+        
+        <div class="cell">
+            <div class="question">Situáte en el directorio sample_files con su ruta absoluta</div>
+            <input type="text" name="cell183" id="cell183" value="cd ~/Descargas/fichero_ejemplo/sample_files/">
+        </div>
+        
+        <div class="cell">
+            <div class="question">Copia el contenido íntegro del directorio "video"  a un nuevo directorio llamado "video-backup" situado en el mismo directorio</div>
+            <input type="text" name="cell184" id="cell184" value="cp -r video/ video-backup">
+        </div>
+        
+        <div class="cell">
+            <div class="question">Mueve al directorio "video" los ficheros que hay en su subdirectorio "mp4" cuyo nombre comience por 'c' (NOTA: Utiliza comodines)</div>
+            <input type="text" name="cell185" id="cell185" value="mv video/mp4/c* video/">
+        </div>
+        
+        <div class="cell">
+            <div class="question">Elimina los ficheros del directorio "video" que contengan la cadena "in". ¿Puedes?</div>
+            <input type="text" name="cell186" id="cell186" value="No">
+        </div>
+        <div class="cell markdown"><p>RESPUESTA (razonada): </p>
+</div>
+
+        <div class="cell">
+            <div class="question"></div>
+            <input type="text" name="cell188" id="cell188" value="No existe ningún fichero que tenga esas caracteristicas, no puedes borrar algo que al empezar no existia ">
+        </div>
+        
+        <div class="cell">
+            <div class="question">lista el fichero cliff_waterfall.mp4 mostrado el tamaño de forma legible (puedes utilizar el comando man para encontrar las opciones correctas)</div>
+            <input type="text" name="cell189" id="cell189" value="ls -lh video/cliff_waterfall.mp4">
+        </div>
+        <div class="cell markdown"><p>SALIDA:</p>
+
+<div class="codehilite">
+<pre><span></span><code data-highlighted="yes" class="hljs language-bash">-r-------- 1 alumno alumno 1,3M sep  7  2023 video/cliff_waterfall.mp4
+</code></pre>
+</div>
+</div>
+<div class="cell markdown"><p>¿De qué permisos depende que el contenido del fichero se pueda modificar?</p>
+
+<p>RESPUESTA (razonada): </p>
+</div>
+
+        <div class="cell">
+            <div class="question"></div>
+            <input type="text" name="cell192" id="cell192" value="De los permisos asociados, estos permisos dependen del grupo de tu propio usuario, y los permisos que tiene asociados este archivo, r es lectura, w escritura  y x ejecución, el acceso a lectura es algo disponible casi siempre por todos pero ejecucion y escritura al ser mas delicado hay restricciones, como la carpeta root que es del super usuario, los permisos suelen guardarse en octal (en linux, windows no lo se) y pueden modificarse con el comando chmod">
+        </div>
+        
+        <div class="cell">
+            <div class="question">Renombra el directorio "video-backup" para que se llame "misvideos"</div>
+            <input type="text" name="cell193" id="cell193" value="mv video-backup/ misvideos ">
+        </div>
+        <div class="cell markdown"><h1>3: Control de versiones</h1>
+</div>
+<div class="cell markdown"><p><strong>Situáte en tu directorio personal</strong> antes de comenzar los ejercicios a continuación. </p>
+</div>
+<div class="cell markdown"><p>Estable tu identidad en git (nombre e email) con 2 comandos:</p>
+</div>
+
+        <div class="cell">
+            <div class="question"></div>
+            <input type="text" name="cell197" id="cell197" value="git config --global user.name &quot;Pablo&quot;">
+        </div>
+        
+        <div class="cell">
+            <div class="question"></div>
+            <input type="text" name="cell198" id="cell198" value="git config --global user.email &quot;Pablo.Martinez@gmail.com&quot;">
+        </div>
+        
+        <div class="cell">
+            <div class="question">Muestra el contenido del fichero de configuración *GLOBAL* de git (~/.gitconfig)</div>
+            <input type="text" name="cell199" id="cell199" value="cat ~/.gitconfig">
+        </div>
+        <div class="cell markdown"><p>SALIDA (deberías ver nombre y apellido):</p>
+
+<div class="codehilite">
+<pre><span></span><code data-highlighted="yes" class="hljs language-ini"><span class="hljs-section">[user]</span>
+    <span class="hljs-attr">name</span> = Alum<span class="hljs-literal">no</span> Apellido
+    <span class="hljs-attr">email</span> = alum<span class="hljs-literal">no</span>@upct.es
+</code></pre>
+</div>
+</div>
+
+        <div class="cell">
+            <div class="question">Crea un directorio llamado "mydir"</div>
+            <input type="text" name="cell201" id="cell201" value="mkdir mydir ">
+        </div>
+        
+        <div class="cell">
+            <div class="question">Cámbiate al directorio que acabas de crear</div>
+            <input type="text" name="cell202" id="cell202" value="cd mydir ">
+        </div>
+        
+        <div class="cell">
+            <div class="question">Crea un repositorio vacío</div>
+            <input type="text" name="cell203" id="cell203" value="git init ">
+        </div>
+        <div class="cell markdown"><p>SALIDA:</p>
+
+<div class="codehilite">
+<pre><span></span><code data-highlighted="yes" class="hljs language-vbnet"><span class="hljs-symbol">ayuda:</span> Usando <span class="hljs-comment">'master' como el nombre de la rama inicial. Este nombre de rama predeterminado</span>
+<span class="hljs-symbol">ayuda:</span> está sujeto a cambios. Para configurar el nombre de la rama inicial para usar en todos
+<span class="hljs-symbol">ayuda:</span> de sus nuevos repositorios, reprimiendo esta advertencia, llama a:
+<span class="hljs-symbol">ayuda:</span> 
+<span class="hljs-symbol">ayuda:</span>  git config --<span class="hljs-keyword">global</span> init.defaultBranch &lt;nombre&gt;
+<span class="hljs-symbol">ayuda:</span> 
+<span class="hljs-symbol">ayuda:</span> Los nombres comúnmente elegidos en lugar de <span class="hljs-comment">'master' son 'main', 'trunk' y</span>
+<span class="hljs-symbol">ayuda:</span> <span class="hljs-comment">'development'. Se puede cambiar el nombre de la rama recién creada mediante este comando:</span>
+<span class="hljs-symbol">ayuda:</span> 
+<span class="hljs-symbol">ayuda:</span>  git branch -m &lt;nombre&gt;
+
+Inicializado repositorio Git vacío en /home/alumno/mydir/.git/
+</code></pre>
+</div>
+</div>
+
+        <div class="cell">
+            <div class="question">Ejecuta este comando para crea un fichero llamado "git-commands"</div>
+            <input type="text" name="cell205" id="cell205" value="echo 'Lista de comandos de git' &gt; git-commands">
+        </div>
+        
+        <div class="cell">
+            <div class="question">Muestra el contenido del fichero git-commands</div>
+            <input type="text" name="cell206" id="cell206" value="cat git-commands">
+        </div>
+        <div class="cell markdown"><p>SALIDA:</p>
+
+<div class="codehilite">
+<pre><span></span><code data-highlighted="yes" class="hljs language-undefined">LISTA DE COMANDOS DE GIT
+</code></pre>
+</div>
+</div>
+
+        <div class="cell">
+            <div class="question">Muestra el estado del árbol de trabajo</div>
+            <input type="text" name="cell208" id="cell208" value="git status">
+        </div>
+        <div class="cell markdown"><p>SALIDA:</p>
+
+<div class="codehilite">
+<pre><span></span><code data-highlighted="yes" class="hljs language-perl">En la rama master
+
+No hay commits todavía
+
+Archivos <span class="hljs-keyword">sin</span> seguimiento:
+
+  (usa <span class="hljs-string">"git add &lt;archivo&gt;..."</span> para incluirlo a lo que se será confirmado)
+
+    git-commands
+
+<span class="hljs-keyword">no</span> hay nada agregado al commit pero hay archivos <span class="hljs-keyword">sin</span> seguimiento presentes (usa <span class="hljs-string">"git add"</span> para hacerles seguimiento)
+</code></pre>
+</div>
+</div>
+
+        <div class="cell">
+            <div class="question">Añade el fichero "git-commands" al índice</div>
+            <input type="text" name="cell210" id="cell210" value="git add git-commands">
+        </div>
+        
+        <div class="cell">
+            <div class="question">Muestra el estado del árbol de trabajo otra vez</div>
+            <input type="text" name="cell211" id="cell211" value="git status">
+        </div>
+        <div class="cell markdown"><p>SALIDA:</p>
+
+<div class="codehilite">
+<pre><span></span><code data-highlighted="yes" class="hljs language-css">En la rama master
+No hay commits todaví<span class="hljs-selector-tag">a</span>
+Cambios <span class="hljs-selector-tag">a</span> ser confirmados:
+
+  (usa <span class="hljs-string">"git rm --cached &lt;archivo&gt;..."</span> para sacar del área de stage)
+
+    nuevos archivos: git-commands
+</code></pre>
+</div>
+</div>
+
+        <div class="cell">
+            <div class="question">Confirma los cambios del índice al repositorio con el mensaje "Añadiendo fichero con lista de comandos"</div>
+            <input type="text" name="cell213" id="cell213" value="git commit -m &quot;Añadiendo fichero con la lista de comandos&quot;">
+        </div>
+        <div class="cell markdown"><p>SALIDA:</p>
+
+<div class="codehilite">
+<pre><span></span><code data-highlighted="yes" class="hljs language-scss"><span class="hljs-selector-attr">[master (commit-raíz) c40926a]</span> <span class="hljs-selector-tag">A</span>ñadiendo fichero con lista de comandos
+ <span class="hljs-number">1</span> file changed, <span class="hljs-number">1</span> <span class="hljs-built_in">insertion</span>(+)
+ create mode <span class="hljs-number">100644</span> git-commands
+</code></pre>
+</div>
+</div>
+
+        <div class="cell">
+            <div class="question">Muestra el historial de commits del repositorio</div>
+            <input type="text" name="cell215" id="cell215" value="git log ">
+        </div>
+        <div class="cell markdown"><p>SALIDA:</p>
+
+<div class="codehilite">
+<pre><span></span><code data-highlighted="yes" class="hljs language-sql"><span class="hljs-keyword">commit</span> c40926a85624f26c3520489b98c7006db7ded8a6 (HEAD <span class="hljs-operator">-</span><span class="hljs-operator">&gt;</span> master)
+Author: Alumno Apellido <span class="hljs-operator">&lt;</span>alumno<span class="hljs-variable">@upct</span>.es<span class="hljs-operator">&gt;</span>
+<span class="hljs-type">Date</span>:   Tue Aug <span class="hljs-number">13</span> <span class="hljs-number">16</span>:<span class="hljs-number">57</span>:<span class="hljs-number">59</span> <span class="hljs-number">2024</span> <span class="hljs-operator">+</span><span class="hljs-number">0200</span>
+
+    Añadiendo fichero con lista de comandos
+</code></pre>
+</div>
+</div>
+
+        <div class="cell">
+            <div class="question">Ejecuta los siguientes comandos para añadir los 3 líneas al fichero git-commands</div>
+            <input type="text" name="cell217" id="cell217" value="echo &quot;git init: Para crear un repo vacío&quot; &gt;&gt; git-commands; echo &quot;git add: Para añadir cambios al índice (stage)&quot; &gt;&gt; git-commands; echo &quot;git commit: Para confirmar los cambios&quot; &gt;&gt; git-commands">
+        </div>
+        
+        <div class="cell">
+            <div class="question">Muestra el contenido del fichero "git-commands"</div>
+            <input type="text" name="cell218" id="cell218" value="cat git-commands ">
+        </div>
+        <div class="cell markdown"><p>SALIDA:</p>
+
+<div class="codehilite">
+<pre><span></span><code data-highlighted="yes" class="hljs language-yaml"><span class="hljs-string">LISTA</span> <span class="hljs-string">DE</span> <span class="hljs-string">COMANDOS</span> <span class="hljs-string">DE</span> <span class="hljs-string">GIT</span>
+<span class="hljs-attr">git init:</span> <span class="hljs-string">Para</span> <span class="hljs-string">crear</span> <span class="hljs-string">un</span> <span class="hljs-string">repo</span> <span class="hljs-string">vacío</span>
+<span class="hljs-attr">git add:</span> <span class="hljs-string">Para</span> <span class="hljs-string">añadir</span> <span class="hljs-string">cambios</span> <span class="hljs-string">al</span> <span class="hljs-string">índice</span> <span class="hljs-string">(stage)</span>
+<span class="hljs-attr">git commit:</span> <span class="hljs-string">Para</span> <span class="hljs-string">confirmar</span> <span class="hljs-string">los</span> <span class="hljs-string">cambios</span>
+</code></pre>
+</div>
+</div>
+
+        <div class="cell">
+            <div class="question">Muestra las diferencias entre la versión de "git-commands" en el repositorio y en el árbol de trabajo</div>
+            <input type="text" name="cell220" id="cell220" value="git diff git-commands ">
+        </div>
+        <div class="cell markdown"><p>SALIDA:</p>
+
+<div class="codehilite">
+<pre><span></span><code data-highlighted="yes" class="hljs language-css">diff <span class="hljs-attr">--git</span> <span class="hljs-selector-tag">a</span>/git-commands <span class="hljs-selector-tag">b</span>/git-commands
+index <span class="hljs-number">5</span>b28c00..<span class="hljs-number">9451</span>c78 <span class="hljs-number">100644</span>
+--- <span class="hljs-selector-tag">a</span>/git-commands
++++ <span class="hljs-selector-tag">b</span>/git-commands
+@@ -<span class="hljs-number">1</span> +<span class="hljs-number">1</span>,<span class="hljs-number">4</span> @@
+
+ LISTA DE COMANDOS DE GIT
++git <span class="hljs-attribute">init</span>: Para crear un repo vacío
++git <span class="hljs-attribute">add</span>: Para añadir cambios al índice (stage)
++git <span class="hljs-attribute">commit</span>: Para confirmar los cambios
+</code></pre>
+</div>
+</div>
+
+        <div class="cell">
+            <div class="question">Añade los cambios en "git-commands" al índice</div>
+            <input type="text" name="cell222" id="cell222" value="git add git-commands ">
+        </div>
+        
+        <div class="cell">
+            <div class="question">Muestra las diferencias entre el árbol de trabajo y el índice</div>
+            <input type="text" name="cell223" id="cell223" value="git diff git-commands ">
+        </div>
+        <div class="cell markdown"><ul>
+<li>¿Por qué el comando anterior no muestra nada?</li>
+</ul>
+
+<p>RESPUESTA (razonada):</p>
+</div>
+
+        <div class="cell">
+            <div class="question"></div>
+            <input type="text" name="cell225" id="cell225" value="Antes de ejecutar el git add el estado del fichero era untracked y al ejecutar el comando pasa a modify, preparado para un posible commit que pueda aceptar esos cambios">
+        </div>
+        
+        <div class="cell">
+            <div class="question">Muestra las diferencias entre el índice y el repositorio  (los cambios que son candidatos a ser confirmados)</div>
+            <input type="text" name="cell226" id="cell226" value="git diff --cached ">
+        </div>
+        <div class="cell markdown"><p>SALIDA:</p>
+
+<div class="codehilite">
+<pre><span></span><code data-highlighted="yes" class="hljs language-css">diff <span class="hljs-attr">--git</span> <span class="hljs-selector-tag">a</span>/git-commands <span class="hljs-selector-tag">b</span>/git-commands
+index <span class="hljs-number">5</span>b28c00..<span class="hljs-number">9451</span>c78 <span class="hljs-number">100644</span>
+--- <span class="hljs-selector-tag">a</span>/git-commands
++++ <span class="hljs-selector-tag">b</span>/git-commands
+@@ -<span class="hljs-number">1</span> +<span class="hljs-number">1</span>,<span class="hljs-number">4</span> @@
+
+ LISTA DE COMANDOS DE GIT
++git <span class="hljs-attribute">init</span>: Para crear un repo vacío
++git <span class="hljs-attribute">add</span>: Para añadir cambios al índice (stage)
++git <span class="hljs-attribute">commit</span>: Para confirmar los cambios
+</code></pre>
+</div>
+</div>
+<div class="cell cell-info"><h1>FIN de Bloque 1 - Práctica 1</h1>
+</div>
+
+    <button type="button" class="save-btn" onclick="saveHTML()">💾 Guardar HTML con respuestas</button>
+  
+
+  <script>
+  function saveHTML() {
+      const doc = document.documentElement.cloneNode(true);
+      const liveControls = document.querySelectorAll('input, textarea, select');
+      const cloneControls = doc.querySelectorAll('input, textarea, select');
+
+      for (let i = 0; i < liveControls.length; i++) {
+          const src = liveControls[i];
+          const dst = cloneControls[i];
+          const tag = src.tagName.toLowerCase();
+
+          if (tag === 'input') {
+              dst.setAttribute('value', src.value);
+          }
+      }
+
+      const htmlContent = '<!DOCTYPE html>\n' + doc.outerHTML;
+      const blob = new Blob([htmlContent], { type: 'text/html' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'respuestas.html';
+      a.click();
+  }
+  </script>
+
+
+</strong></strong></form></body></html>
