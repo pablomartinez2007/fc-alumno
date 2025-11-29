@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es"><head>
+  <meta charset="UTF-8">
+  <title>P2-GCID-FC-SOL</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    :root {
+      --upct-azul: #005a9c;
+      --upct-azul-claro: #d9ecf9;
+      --upct-gris-claro: #f5f5f5;
+      --texto-principal: #333333;
+      --borde-input: #005a9c;
+    }
+    body { font-family: Arial, sans-serif; color: var(--texto-principal); background-color: #ffffff; margin: 20px; max-width: 900px; }
+    header { text-align: center; background-color: var(--upct-azul); color: white; padding: 20px 10px; border-radius: 8px; margin-bottom: 30px; }
+    header h1 { margin: 0; font-size: 26px; }
+    header h2 { margin: 0; font-size: 18px; font-weight: normal; }
+    .cell { border: 1px solid #cccccc; background: var(--upct-gris-claro); padding: 10px; margin-bottom: 15px; border-radius: 6px; }
+    .cell-info { background-color: var(--upct-azul-claro); border: 2px solid var(--upct-azul); color: var(--upct-azul); font-weight: bold; text-align: center; }
+    .markdown { margin: 10px 0; font-weight: normal; }
+    .question { margin-bottom: 5px; font-weight: normal; font-family: Arial, sans-serif; }
+    input[type=text] { width: 100%; font-family: monospace; padding: 6px; border: 2px solid var(--borde-input); border-radius: 4px; margin-bottom: 20px; box-sizing: border-box; }
+    pre code { display: block; padding: 10px; border-radius: 6px; font-family: monospace; white-space: pre-wrap; }
+    .shell-output { background-color: #1e1e1e; color: #b9f75a; font-family: "Courier New", monospace; padding: 10px; border-radius: 6px; margin: 10px 0; white-space: pre-wrap; }
+    .identity { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+    .identity label { font-weight: bold; color: var(--upct-azul); }
+    .identity input[type=text] { width: auto; flex: 1; margin-bottom: 0; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Fundamentos de Computadores</h1>
+    <h2>1º de Grado en Ciencia e Ingeniería de Datos - UPCT</h2>
+  </header>
+  <form id="notebookForm">
+<div class="cell markdown"><h1></h1><h2 align="center"><strong &gt;gcid="" fundamentos="" de="" computadores<="" strong="" &gt;<="" h2=""></strong></h2><strong &gt;gcid="" fundamentos="" de="" computadores<="" strong="" &gt;<="" h2="">
+</strong></div><strong &gt;gcid="" fundamentos="" de="" computadores<="" strong="" &gt;<="" h2="">
+<div class="cell markdown"><h1>Práctica 2: Tuberías y filtros.</h1>
+</div>
+<div class="cell markdown"><h1></h1><h3><strong &gt;ejercicios="" entregables="" para="" evaluación="" continua<="" strong="" &gt;<="" h3=""></strong></h3><strong &gt;ejercicios="" entregables="" para="" evaluación="" continua<="" strong="" &gt;<="" h3="">
+</strong></div><strong &gt;ejercicios="" entregables="" para="" evaluación="" continua<="" strong="" &gt;<="" h3="">
+
+            <div class="identity">
+                <label for="nombre">Nombre y apellidos:</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Escribe tu nombre y apellidos" value="Pablo Martinez Hernando ">
+            </div>
+            
+
+<div class="cell markdown"><hr>
+</div>
+<div class="cell markdown"><p>Ejecuta los siguientes comandos para descargar el repositorio Git de la herramienta shell:</p>
+</div>
+<div class="cell"><pre><code class="language-bash hljs" data-highlighted="yes">git <span class="hljs-built_in">clone</span> --depth 1 https://github.com/zsh-users/zsh</code></pre></div>
+<div class="cell markdown question"><ol>
+<li>Haz un listado recursivo que muestre todos los ficheros y directorios (sin mostrar los que están ocultos) que hay dentro del directorio <code>zsh</code>, a cualquier profundidad, redirigiendo la salida al fichero <code>allfiles_zsh</code> (con <code>&gt;</code>).</li>
+</ol>
+</div>
+<div class="cell"><input type="text" name="cell_9" id="cell_9" placeholder="Escribe aquí el comando..." value="ls -r zsh/*/ &gt; allfiles_zsh"></div>
+<div class="cell markdown question"><ol start="2">
+<li>Muestra las primeras 10 líneas del fichero <code>allfiles_zsh</code>.</li>
+</ol>
+</div>
+<div class="cell"><input type="text" name="cell_11" id="cell_11" placeholder="Escribe aquí el comando..." value="cat allfiles_zsh | head -n 10 "></div>
+<div class="shell-output">zsh:
+aclocal.m4
+aczsh.m4
+allfiles_zsh
+ChangeLog
+Completion
+Config
+config.guess
+config.sub
+configure.ac</div>
+<div class="cell markdown question"><ol start="3">
+<li>Muestra las últimas 30 líneas del fichero <code>allfiles_zsh</code>.</li>
+</ol>
+</div>
+<div class="cell"><input type="text" name="cell_14" id="cell_14" placeholder="Escribe aquí el comando..." value="cat allfiles_zsh | tail -n 30 "></div>
+<div class="shell-output">... (salida cortada)
+difflog.pl
+helpfiles
+mkdisttree.sh
+preconfig
+printdefines
+reporter
+ztst-ftplugin.vim
+ztst-syntax.vim
+zyodl.vim</div>
+<div class="cell markdown"><p>Verás que en el fichero <code>allfile_zsh</code> se muestra el nombre de cada directorio seguido por el carácter <code>:</code> y a continución el contenido del directorio. </p>
+</div>
+<div class="cell markdown question"><ol start="4">
+<li>Extiende el comando del ejercicio 2 con una tubería para quedarte con los nombres sin que el directorio acabe con <code>:</code> (PISTA: puedes usar el filtro <em><code>cut</code></em>). </li>
+</ol>
+</div>
+<div class="cell"><input type="text" name="cell_18" id="cell_18" placeholder="Escribe aquí el comando..." value="cat allfiles_zsh | head -n 10 | cut -d &quot;:&quot; -f2"></div>
+<div class="shell-output">zsh
+aclocal.m4
+aczsh.m4
+allfiles_zsh
+ChangeLog
+Completion
+Config
+config.guess
+config.sub
+configure.ac</div>
+<div class="cell markdown question"><ol start="5">
+<li>Cuenta el número de elementos, es decir ficheros y subdirectorios, (de primer nivel, sin contar el contenido de los subdirectorios) que tiene el directorio <code>zsh</code>. El resultado debería ser 27. Debes utilizar una tubería. </li>
+</ol>
+</div>
+<div class="cell"><input type="text" name="cell_21" id="cell_21" placeholder="Escribe aquí el comando..." value="ls zsh | wc -l"></div>
+<div class="shell-output">27</div>
+<div class="cell markdown question"><ol start="6">
+<li>Lista en orden alfabetico los elementos de primer nivel del directorio  <code>zsh</code>.</li>
+</ol>
+</div>
+<div class="cell"><input type="text" name="cell_24" id="cell_24" placeholder="Escribe aquí el comando..." value="ls -1 ~/zsh | sort "></div>
+<div class="shell-output">...(salida cortada)
+NEWS
+README
+Scripts
+Src
+StartupFiles
+Test
+Util</div>
+<div class="cell markdown question"><ol start="7">
+<li>Muestra solamente el elemento de primer orden del directorio <code>zsh</code> que sea el ultimo en el ordenamiento alfabético.</li>
+</ol>
+</div>
+<div class="cell"><input type="text" name="cell_27" id="cell_27" placeholder="Escribe aquí el comando..." value="ls zsh | sort | tail -n 1"></div>
+<div class="shell-output">Util</div>
+<div class="cell markdown question"><ol start="8">
+<li>Lista de forma detallada el fichero de primer orden del directorio <code>zsh</code> que ocupe menos espacio.</li>
+</ol>
+</div>
+<div class="cell"><input type="text" name="cell_30" id="cell_30" placeholder="Escribe aquí el comando..." value="ls -l zsh | sort -n -k5 | head -n 1"></div>
+<div class="shell-output">-rw-rw-r--  1 alumno alumno    598 nov  8 18:36 aclocal.m4</div>
+<div class="cell markdown question"><ol start="9">
+<li>Modifica el comando anterior para quedarte solo con los permisos del fichero que ocupa menos espacio en <code>zsh</code>. </li>
+</ol>
+</div>
+<div class="cell"><input type="text" name="cell_33" id="cell_33" placeholder="Escribe aquí el comando..." value="ls -l zsh | sort -n -k5 | head -n 1 | cut -c1-10"></div>
+<div class="shell-output">-rw-rw-r--</div>
+<div class="cell markdown question"><ol start="10">
+<li>Muestra las 3 primeras líneas ordenadas de <code>/etc/passwd</code> por orden alfabético del nombre de usuario (cada línea de este fichero comienza por el nombre de usuario).</li>
+</ol>
+</div>
+<div class="cell"><input type="text" name="cell_36" id="cell_36" placeholder="Escribe aquí el comando..." value="cat /etc/passwd | sort | head -n 3"></div>
+<div class="shell-output">alumno:x:1000:1000:alumno,,,:/home/alumno:/bin/bash
+_apt:x:105:65534::/nonexistent:/usr/sbin/nologin
+avahi-autoipd:x:110:119:Avahi autoip daemon,,,:/var/lib/avahi-autoipd:/usr/sbin/nologin</div>
+<div class="cell markdown"><p>El siguiente comando muestra cada línea del fichero precedida de su longitud de línea: <em>cat /etc/passwd | awk '{ print length, $0 }'</em> </p>
+</div>
+<div class="cell markdown question"><ol start="11">
+<li>Modifica el comando <em>cat /etc/passwd | awk '{ print length, $0 }'</em> para mostrar la línea del fichero /etc/passwd más corta. Necesitarás dos tuberías más. </li>
+</ol>
+</div>
+<div class="cell"><input type="text" name="cell_40" id="cell_40" placeholder="Escribe aquí el comando..." value="cat /etc/passwd | awk '{ print length, $0 }' | sort -n | head -n 1 "></div>
+<div class="shell-output">31 root:x:0:0:root:/root:/bin/bash</div>
+<div class="cell markdown question"><ol start="12">
+<li>Modifica el comando anterior para mostrar solo los datos de usuario de la línea más corta del fichero /etc/passwd.</li>
+</ol>
+</div>
+<div class="cell"><input type="text" name="cell_43" id="cell_43" placeholder="Escribe aquí el comando..." value="cat /etc/passwd | awk '{print length, $0}' | sort -n | head -n 1 | cut -d &quot; &quot; -f2-"></div>
+<div class="shell-output">root:x:0:0:root:/root:/bin/bash</div>
+<div class="cell markdown question"><ol start="13">
+<li>Del fichero /etc/passwd, muestra el nombre de usuario (campo 1) y el shell (campo 7). (Los campos están separados por <code>:</code>)</li>
+</ol>
+</div>
+<div class="cell"><input type="text" name="cell_46" id="cell_46" placeholder="Escribe aquí el comando..." value="cat /etc/passwd | awk -F: '{print $1, $7}'"></div>
+<div class="shell-output">... (salida corta)
+gdm:/bin/false
+alumno:/bin/bash
+vboxadd:/bin/false
+glances:/usr/sbin/nologin</div>
+<div class="cell markdown question"><ol start="14">
+<li>Modifica el comando anterior para en vez de mostrar el usuario y shell del fichero /etc/passwd separados con <code>:</code> se muestre el texto <code>con shell</code>. (Pista: utiliza el comando <code>sed</code>) </li>
+</ol>
+</div>
+<div class="cell"><input type="text" name="cell_49" id="cell_49" placeholder="Escribe aquí el comando..." value="cat /etc/passwd | awk -F: '{print $1 &quot;:&quot; $7}' | sed 's/:/ con shell /'"></div>
+<div class="shell-output">...(salida cortada)
+gnome-initial-setup con shell /bin/false
+hplip con shell /bin/false
+gdm con shell /bin/false
+alumno con shell /bin/bash
+vboxadd con shell /bin/false
+glances con shell /usr/sbin/nologin</div>
+<div class="cell markdown"><h1>FIN de Práctica 2</h1>
+</div>
+
+    <button type="button" class="save-btn" onclick="saveHTML()">💾 Guardar HTML</button>
+  
+
+  <script>
+  function saveHTML() {
+      const doc = document.documentElement.cloneNode(true);
+      const liveControls = document.querySelectorAll('input, textarea, select');
+      const cloneControls = doc.querySelectorAll('input, textarea, select');
+
+      for (let i = 0; i < liveControls.length; i++) {
+          const src = liveControls[i];
+          const dst = cloneControls[i];
+          if (src.tagName.toLowerCase() === 'input') {
+              dst.setAttribute('value', src.value);
+          }
+      }
+
+      // Mantener el mismo nombre del archivo actual
+      let fileName = document.title || "documento";
+      const path = window.location.pathname;
+      const match = path.match(/([^\/]+\.html?)$/i);
+      if (match) fileName = match[1];
+
+      const htmlContent = '<!DOCTYPE html>\n' + doc.outerHTML;
+      const blob = new Blob([htmlContent], { type: 'text/html' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = fileName;
+      a.click();
+  }
+  </script>
+
+
+</strong></strong></form></body></html>
