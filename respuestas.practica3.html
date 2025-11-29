@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="es"><head>
+  <meta charset="UTF-8">
+  <title>GCID-FC-P3</title>
+  <style>
+    :root {
+      --upct-azul: #005a9c;
+      --upct-azul-claro: #d9ecf9;
+      --upct-gris-claro: #f5f5f5;
+      --texto-principal: #333333;
+      --borde-input: #005a9c;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      color: var(--texto-principal);
+      background-color: #ffffff;
+      margin: 20px;
+      max-width: 900px;
+    }
+    header {
+      text-align: center;
+      background-color: var(--upct-azul);
+      color: white;
+      padding: 20px 10px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+    }
+    header h1 { margin: 0; font-size: 26px; }
+    header h2 { margin: 0; font-size: 18px; font-weight: normal; }
+    .cell {
+      border: 1px solid #cccccc;
+      background: var(--upct-gris-claro);
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 6px;
+    }
+    .cell-info {
+      background-color: var(--upct-azul-claro);
+      border: 2px solid var(--upct-azul);
+      color: var(--upct-azul);
+      font-weight: bold;
+      text-align: center;
+      padding: 12px;
+      border-radius: 6px;
+      margin-bottom: 20px;
+    }
+    .markdown {
+      margin: 10px 0;
+      font-weight: normal;
+    }
+    .question {
+      margin-bottom: 5px;
+      font-weight: normal;
+      font-family: Arial, sans-serif;
+    }
+    input[type=text] {
+      width: 100%;
+      font-family: monospace;
+      padding: 6px;
+      border: 2px solid var(--borde-input);
+      border-radius: 4px;
+      margin-bottom: 20px;
+      box-sizing: border-box;
+    }
+    pre code {
+      display: block;
+      padding: 10px;
+      border-radius: 6px;
+      font-family: monospace;
+      white-space: pre-wrap;
+      background-color: #2b2b2b;
+      color: #e6e6e6;
+    }
+    .shell-output {
+      background-color: #1e1e1e;
+      color: #b9f75a;
+      font-family: "Courier New", monospace;
+      padding: 10px;
+      border-radius: 6px;
+      margin: 10px 0;
+      white-space: pre-wrap;
+    }
+    .save-btn {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: var(--upct-azul);
+      color: white;
+      border: none;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Fundamentos de Computadores</h1>
+    <h2>GCID - UPCT</h2>
+  </header>
+  <form id="notebookForm">
+<div class="cell cell-info"><h1>Práctica 3: Búsquedas en el sistema de ficheros. Comodines.</h1></div>
+
+
+
+
+            <div class="cell identity">
+              <label for="nombre">NOMBRE Y APELLIDOS:</label>
+              <input type="text" id="nombre" name="nombre" placeholder="Escribe tu nombre y apellidos" value="Pablo Martinez Hernando ">
+            </div>
+            <div class="cell markdown"><hr>
+</div>
+
+<div class="cell markdown"><h1>1. Búsquedas de ficheros con la herramienta find</h1></div>
+<div class="cell markdown question">Descarga el comprimido ficheros_ejemplo y descomprímelo dentro de tu carpeta personal. </div>
+<div class="cell"><pre><code># Situáte en el directorio samples_files 
+cd ~/ficheros_ejemplo/sample_files</code></pre></div>
+<div class="cell">
+  <div class="question">Muestra todos los directorios que cuelgan del directorio actual</div>
+  <div class="question">cuyo nombre acabe en 'v'</div>
+  <input type="text" name="cell_8" id="cell_8" placeholder="Escribe aquí el comando..." value="find . -type d -name &quot;*v&quot;">
+</div>
+<div class="shell-output">./audio/wav
+./video/mkv
+./video/mov
+./video/flv</div>
+<div class="cell">
+  <div class="question">Muestra todos los ficheros en "image", cuyo nombre empiece con</div>
+  <div class="question">una letra entre la b y la f, con extensión .jpg y</div>
+  <input type="text" name="cell_10" id="cell_10" placeholder="Escribe aquí el comando..." value="find image -type f -name &quot;[b-f]*.jpg&quot;">
+</div>
+<div class="shell-output">image/jpg/eagle_closeup.jpg
+image/jpg/birds_eye_beach.jpg
+image/jpg/elephants.jpg
+image/jpg/egg_pattern.jpg
+image/jpg/cocktail_on_the_beach.jpg
+image/jpg/bitcoin.jpg</div>
+<div class="cell">
+  <div class="question">Muestra todos los directorios en "image", cuyo nombre contenga la</div>
+  <div class="question">letra 'c' en segundo lugar (por ejemplo: "acb", "1c3", "_cualquiera")</div>
+  <input type="text" name="cell_12" id="cell_12" placeholder="Escribe aquí el comando..." value="find image -type d -name &quot;?c*&quot;">
+</div>
+<div class="shell-output">image/bmp/cc</div>
+<div class="cell">
+  <div class="question">Muestra todos los ficheros en "audio", cuyo nombre contenga las letras 'b', w' y 'v',</div>
+  <div class="question">en ese orden (no necesariamente consecutivas)</div>
+  <input type="text" name="cell_14" id="cell_14" placeholder="Escribe aquí el comando..." value="">
+</div>
+<div class="shell-output">./audio/wav/break_free.wav
+./audio/wav/dub_techno_loop_.wav
+./audio/wav/background_loop_straight_02.wav
+./audio/wav/background_loop_funky_03.wav
+./audio/wav/background_loop_chill_techno_04.wav</div>
+<div class="cell">
+  <div class="question">Muestra todos los ficheros en "audio", cuyo nombre contenga un subrayado (_) seguido de</div>
+  <div class="question">dos caracteres numéricos de los cuales el primero debe ser 0 y el segundo entre 4 y 6</div>
+  <input type="text" name="cell_16" id="cell_16" placeholder="Escribe aquí el comando..." value="find audio -type f -name &quot;*_0[4-6]*&quot;">
+</div>
+<div class="shell-output">./audio/wav/background_loop_chill_techno_04.wav
+./audio/wma/background_loop_straight_04.wma
+./audio/ogg/background_loop_chill_techno_05.ogg</div>
+<div class="cell">
+  <div class="question">Muestra todos los ficheros a partir del directorio actual</div>
+  <div class="question">que tengan tamaño entre 200KiB y 250KiB</div>
+  <input type="text" name="cell_18" id="cell_18" placeholder="Escribe aquí el comando..." value="find . -type f -size +200k -size -250k">
+</div>
+<div class="shell-output">./audio/wma/background_loop_sad_story.wma
+./video/mp4/city_forest_rainbow.mp4
+./image/bmp/coast_side_highway.bmp
+./image/png/oil_towers.png</div>
+<div class="cell markdown"><h1>2. Búsqueda de patrones en ficheros con la herramienta grep</h1></div>
+<div class="cell">
+  <div class="question">Ejecuta esta celda para generar ficheros de prueba. En particular, vamos a</div>
+  <div class="question">clonar el repositorio con el código de zsh (otro programa shell, alternativo a bash)</div>
+  <input type="text" name="cell_21" id="cell_21" placeholder="Escribe aquí el comando..." value="git clone https://github.com/zsh-users/zsh.git zsh_repo">
+</div>
+<div class="cell markdown question">Cámbiate al directorio del repositorio que acabas de clonar. </div>
+<div class="cell">
+  <div class="question">Comprueba que estas en el directorio correcto</div>
+  <input type="text" name="cell_23" id="cell_23" placeholder="Escribe aquí el comando..." value="pwd ">
+</div>
+<div class="shell-output">/home/alumno/zsh</div>
+<div class="cell">
+  <div class="question">Busca en el contenido del fichero Src/main.c aquellas líneas</div>
+  <div class="question">que contengan la cadena "shell"</div>
+  <input type="text" name="cell_25" id="cell_25" placeholder="Escribe aquí el comando..." value="grep &quot;shell&quot; Src/main.c">
+</div>
+<div class="shell-output">* This file is part of zsh, the Z shell.</div>
+<div class="cell">
+  <div class="question">Busca en el contenido de los ficheros de Src cuyo nombre acabe en .c</div>
+  <div class="question">aquellas líneas que contengan la cadena "BASH" (en mayúsculas)</div>
+  <input type="text" name="cell_27" id="cell_27" placeholder="Escribe aquí el comando..." value="grep &quot;BASH&quot; Src/*.c">
+</div>
+<div class="shell-output">Src/options.c:{{NULL, "bashautolist",	      0},                        BASHAUTOLIST},
+Src/options.c:{{NULL, "bashrematch",	      0},			 BASHREMATCH},</div>
+<div class="cell">
+  <div class="question">Busca en el contenido de los ficheros de Src cuyo nombre acabe en .c</div>
+  <div class="question">aquellas líneas que contengan la palabra "ansi" (no como fragmento</div>
+  <div class="question">de otra function más larga), sin atender al uso de mayúsculas</div>
+  <input type="text" name="cell_29" id="cell_29" placeholder="Escribe aquí el comando..." value="grep -wi &quot;ansi&quot; Src/*.c">
+</div>
+<div class="shell-output">Src/builtin.c:		     * possible escape characters recognized by ANSI.
+Src/prompt.c:/* Defines standard ANSI colour names in index order */
+Src/prompt.c: * Return index of ANSI colour for which *teststrp is an abbreviation.
+Src/prompt.c:    /* Out of range of termcap colours and basic ANSI set. */
+Src/prompt.c:	 * If 0 to 7, assume standard ANSI works, if 8 to 255, assume
+Src/utils.c: * is contained in the ANSI standard C library, but a lot of them seem *</div>
+<div class="cell">
+  <div class="question">Busca recursivamente en el directorio actual ficheros que contengan</div>
+  <div class="question">la cadena "standard C" (usa las comillas para quitar el significado especial al carácter espacio)</div>
+  <input type="text" name="cell_31" id="cell_31" placeholder="Escribe aquí el comando..." value="grep -r &quot;standard C&quot; .">
+</div>
+<div class="shell-output">./Src/utils.c: * is contained in the ANSI standard C library, but a lot of them seem *
+./Completion/Unix/Command/_gcc:  '-ffreestanding[do not assume that standard C libraries and main exist]'
+./Functions/Misc/zcalc:# and the standard C-like notation with a leading 0x for hexadecimal is
+./Doc/Zsh/arith.yo:If the tt(C_BASES) option is set, hexadecimal numbers are output in the standard C
+./Doc/Zsh/options.yo:Output hexadecimal numbers in the standard C format, for example `tt(0xFF)'</div>
+<div class="cell">
+  <div class="question">Busca recursivamente en el directorio "Doc" ficheros que contengan</div>
+  <div class="question">una cadena numérica que empiece por cualquier número seguido de "567"</div>
+  <input type="text" name="cell_33" id="cell_33" placeholder="Escribe aquí el comando..." value="grep -r &quot;[0-9]567&quot; Doc ">
+</div>
+<div class="shell-output">Doc/Zsh/arith.yo:example, by giving the command `tt(print - $(( 12345678901 )))'; if the</div>
+<div class="cell">
+  <div class="question">Busca recursivamente en el directorio "Doc" ficheros que contengan</div>
+  <div class="question">líneas que comiencen por un número seguido de un guión (-)</div>
+  <input type="text" name="cell_35" id="cell_35" placeholder="Escribe aquí el comando..." value="grep -r &quot;^[0-9]-&quot; Doc">
+</div>
+<div class="shell-output">Doc/Zsh/params.yo:7-bit subset (ASCII) is used.  For example, if the character set</div>
+<div class="cell">
+  <div class="question">Busca en los ficheros "NEWS" e "INSTALL" líneas que acaben por "rary"</div>
+  <input type="text" name="cell_37" id="cell_37" placeholder="Escribe aquí el comando..." value="grep &quot;rary$&quot; NEWS INSTALL">
+</div>
+<div class="shell-output">NEWS:- builtin interface to pcre library
+INSTALL:zsh tries to make features from curses available and if the curses library
+INSTALL:The --enable-additional-fpath option may be used to add arbitrary
+INSTALL:This searches for POSIX capabilities; if found, the `cap' library</div>
+<div class="cell markdown"><h1>3. Búsquedas con filtros</h1></div>
+<div class="cell markdown question">En los listados recursivos, cada subdirectorio acaba por el carácter `:`. <br><br>Haz un listado recursivo del directorio `zsh` del ejercicio anterior, pero esta vez combínalo con el comando `grep` mediante una tubería para mostrar únicamente los nombres de los directorios.</div>
+<div class="cell">
+  <input type="text" name="cell_41" id="cell_41" placeholder="Escribe aquí el comando..." value="ls -R zsh | grep ':$'">
+</div>
+<div class="shell-output">... (salida cortada)
+zsh/Src/Builtins:
+zsh/Src/Modules:
+zsh/Src/Zle:
+zsh/StartupFiles:
+zsh/Test:
+zsh/Util:</div>
+<div class="cell markdown question">Extiende el comando anterior con una nueva tubería para quedarte con los nombres de los directorios sin el `:` final (PISTA: puedes usar el filtro `cut`*). </div>
+<div class="cell">
+  <input type="text" name="cell_44" id="cell_44" placeholder="Escribe aquí el comando..." value="ls -R zsh | grep ':$' | cut -d: -f1">
+</div>
+<div class="shell-output">... (salida cortada)
+zsh/Src/Builtins
+zsh/Src/Modules
+zsh/Src/Zle
+zsh/StartupFiles
+zsh/Test
+zsh/Util</div>
+<div class="cell markdown question">Extiende el comando anterior con una nueva tubería para contar cuántos directorios hay dentro de `zsh`. El resultado debería ser 75.</div>
+<div class="cell">
+  <input type="text" name="cell_47" id="cell_47" placeholder="Escribe aquí el comando..." value="ls -R zsh | grep ':$' | cut -d: -f1 | wc -l ">
+</div>
+<div class="shell-output">75</div>
+<div class="cell markdown question">Ahora vamos a utilizar el comando `find`, combinado con `wc` mediante una tubería, para comprobar que el número de directorios que obtenemos de esta otra forma coincide con el que hemos calculado antes mediante un `ls` recursivo.</div>
+<div class="cell">
+  <input type="text" name="cell_50" id="cell_50" placeholder="Escribe aquí el comando..." value="find zsh -type d | wc -l">
+</div>
+<div class="shell-output">92</div>
+<div class="cell markdown">Verás que no coincide porque `find` encuentra también los directorios ocultos y en el directorio `zsh` tenemos el directorio oculto `.git`. </div>
+<div class="cell markdown question">Encuentra con `find` los directorios ocultos que hay en `zsh`. Verás que el único directorio oculto es `.git`.</div>
+<div class="cell">
+  <input type="text" name="cell_54" id="cell_54" placeholder="Escribe aquí el comando..." value="find zsh -type d -name &quot;.*&quot;">
+</div>
+<div class="shell-output">zsh/.git</div>
+<div class="cell markdown question">Utiliza de nuevo `find` pero a su salida usa `grep` para quedarte con las líneas que no contengan la cadena `.git`, antes de contarlas con `wc`. OJO: En el patrón que pasamos a `grep`, el carácter punto `.` tiene un significado especial (equivale a un carácter cualquiera) por lo que debes anteponer la contrabarra `\` para quitarle su significado especial: `"\.git"`</div>
+<div class="cell">
+  <input type="text" name="cell_57" id="cell_57" placeholder="Escribe aquí el comando..." value="find zsh -type d | grep -v &quot;\.git&quot; | wc -l">
+</div>
+<div class="shell-output">75</div>
+<div class="cell markdown question">Ahora vamos a confirmar que el número de directorios que hemos contado coincide con lo que obtenemos haciendo un listado largo (`-l`) y recursivo de `zsh`. Sabiendo cómo se distinguen los directorios de los ficheros regulares en un listado largo (carácter que indica el tipo de fichero al comienzo de la línea), filtra la salida para quedarte únicamente con las que corresponden a directorios, y cuéntalas. (Recuerda: `^` representa el inicio de línea en el patrón pasado a `grep`)</div>
+<div class="cell">
+  <input type="text" name="cell_60" id="cell_60" placeholder="Escribe aquí el comando..." value="ls -lR zsh | grep &quot;^d&quot; | wc -l ">
+</div>
+<div class="shell-output">74</div>
+<div class="cell markdown">El resultado del comando anterior debería ser 74, ya que en el listado largo no se incluye al propio directorio base `zsh` (que sí se incluía tanto en la salida de `find` como en la del `ls` recursivo corto anterior).</div>
+<div class="cell markdown question">Con la opción `-printf "%s;%p;%M;%u;%g\n"`, utiliza `find` para generar un fichero llamado `source_code.csv` que contenga, para todos los ficheros regulares del directorio `zsh/Src` cuyo tamaño sea mayor que 50KiB, su tamaño, nombre, permisos, usuario y grupo, separados por punto y coma. Pista: debes usar una redirección al fichero después del comando find. </div>
+<div class="cell">
+  <input type="text" name="cell_64" id="cell_64" placeholder="Escribe aquí el comando..." value="find zsh/Src -type f -size +50k -printf &quot;%s;%p;%M;%u;%g\n&quot; &gt; source_code.csv">
+</div>
+<div class="cell markdown question">Muestra el contenido del fichero generado anteriormente.</div>
+<div class="cell">
+  <input type="text" name="cell_66" id="cell_66" placeholder="Escribe aquí el comando..." value="cat source_code.csv">
+</div>
+<div class="shell-output">...(salida cortada)
+76620;zsh/Src/jobs.c;-rw-rw-r--;alumno;alumno
+90174;zsh/Src/parse.c;-rw-rw-r--;alumno;alumno
+125467;zsh/Src/subst.c;-rw-rw-r--;alumno;alumno
+102320;zsh/Src/zsh.h;-rw-rw-r--;alumno;alumno
+156661;zsh/Src/params.c;-rw-rw-r--;alumno;alumno</div>
+<div class="cell markdown question">Escribe un comando entubado que usando los datos de `source_code.csv`, muestre el nombre y el propietario de los dos ficheros de tamaño mayor (PISTA: a `cut` le puedes pasar un rango `n-m` o una lista `n,m` de campos a seleccionar).</div>
+<div class="cell">
+  <input type="text" name="cell_69" id="cell_69" placeholder="Escribe aquí el comando..." value="sort -k1,1nr source_code.csv | head -n 2 | cut -d&quot;;&quot; -f2,4">
+</div>
+<div class="shell-output">zsh/Src/utils.c;alumno
+zsh/Src/builtin.c;alumno</div>
+<div class="cell markdown question">Modifica el comando anterior para mostrar de entre los 10 ficheros de mayor tamñao, el nombre y tamaño de los ficheros que cuelgan del directorio `/Zle`. </div>
+<div class="cell">
+  <input type="text" name="cell_72" id="cell_72" placeholder="Escribe aquí el comando..." value="sort -k1,1nr source_code.csv | head -n 10 | sort &quot;/Zle/&quot; | cut -d&quot;;&quot; -f2,1">
+</div>
+<div class="shell-output">99105;zsh/Src/Zle/compctl.c
+131314;zsh/Src/Zle/computil.c</div>
+<div class="cell markdown">FIN de Práctica 3</div>
+
+    <button type="button" class="save-btn" onclick="saveHTML()">💾 Guardar HTML</button>
+  </form>
+
+  <script>
+  function saveHTML() {
+      const doc = document.documentElement.cloneNode(true);
+      const liveControls = document.querySelectorAll('input, textarea, select');
+      const cloneControls = doc.querySelectorAll('input, textarea, select');
+
+      for (let i = 0; i < liveControls.length; i++) {
+          const src = liveControls[i];
+          const dst = cloneControls[i];
+          if (src.tagName.toLowerCase() === 'input') {
+              dst.setAttribute('value', src.value);
+          }
+      }
+
+      let fileName = document.title || "documento";
+      const path = window.location.pathname;
+      const match = path.match(/([^\/]+\.html?)$/i);
+      if (match) fileName = match[1];
+
+      const htmlContent = '<!DOCTYPE html>\n' + doc.outerHTML;
+      const blob = new Blob([htmlContent], { type: 'text/html' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = fileName;
+      a.click();
+  }
+  </script>
+
+
+</body></html>
